@@ -23,15 +23,15 @@ public class TestBase {
 			WebDriverManager.chromedriver().setup();	
 			driver = new ChromeDriver();
 		}
-		else if(browserName.equals("FF")){
+		else if(browserName.equals("ff")){
 			WebDriverManager.firefoxdriver().setup();	
 			driver = new FirefoxDriver(); 
 		}
-		else if(browserName.equals("IE")){
+		else if(browserName.equals("ie")){
 			WebDriverManager.iedriver().setup();	
 			driver = new InternetExplorerDriver(); 
 		}
-		else if(browserName.equals("Edge")){
+		else if(browserName.equals("edge")){
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver(); 
 		}
@@ -41,7 +41,7 @@ public class TestBase {
 	public static void browsersettings() {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
 	public static void destroy() {

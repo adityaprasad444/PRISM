@@ -54,7 +54,7 @@ public class Listnershelp extends TestBase implements ITestListener{
 	public void onStart(ITestContext context) {
 		System.out.println("Test Started");
 		System.out.println("------------------");
-		reports = new ExtentReports(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) + "-Automation Execution Report.html");
+		reports = new ExtentReports(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_IRA Test Report.html");
 	}
 
 	public void onFinish(ITestContext context) {

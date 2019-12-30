@@ -18,7 +18,7 @@ public class TC1_Login extends HomepageHelp{
 	@Test
 	public void Login() {
 		url();
-		login();
+		login1();
 	}
 	
 	@AfterSuite
