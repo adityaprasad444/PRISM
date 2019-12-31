@@ -60,38 +60,52 @@ public class ExcelReader {
 
 	}
 
-	/*
-	 * public String[][] readDataSet(String sheetName,String testName) { String[][]
-	 * testdata=null; XSSFWorkbook workbook=null;
-	 * 
-	 * String name=null; try { FileInputStream fis=new FileInputStream(new
-	 * File("./src/main/resources/com/kh/IRA/TestData/TestData.xlsx")); workbook=new
-	 * XSSFWorkbook(fis); XSSFSheet sheet=workbook.getSheet(sheetName);
-	 * System.out.println("Sheet Name"+sheet.getSheetName());
-	 * 
-	 * int rows=sheet.getLastRowNum();
-	 * System.out.println("No of rows in Excel sheet:"+rows);
-	 * 
-	 * 
-	 * testdata=findNumberOfRows(sheet,testName);
-	 * 
-	 * int numberOfRows=0;
-	 * 
-	 * for(int i=1;i<=rows;i++) { XSSFRow currentRow=sheet.getRow(i);
-	 * if(currentRow!=null) { XSSFCell currentCell=currentRow.getCell(1);
-	 * 
-	 * name=currentCell.getStringCellValue(); if(name.equalsIgnoreCase(testName)) {
-	 * int cols=currentRow.getLastCellNum(); int noOfCols=0;
-	 * 
-	 * for(int col=2;col<cols;col++) { String
-	 * value=currentRow.getCell(col).getStringCellValue();
-	 * testdata[numberOfRows][noOfCols]=value; noOfCols++; } numberOfRows++; } } }
-	 * }catch(IOException e) { System.out.println("Error occured "+e.getMessage());
-	 * }
-	 * 
-	 * return testdata; }
-	 */
-	
+
+	public String[][] readDataSet(String sheetName,String testName) { 
+		String[][] testdata=null; 
+		XSSFWorkbook workbook=null;
+		String name=null;
+		try { 
+			FileInputStream fis=new FileInputStream(new File("./src/main/resources/com/kh/IRA/TestData/TestData.xlsx"));
+			workbook=new XSSFWorkbook(fis);
+			XSSFSheet sheet=workbook.getSheet(sheetName);
+			System.out.println("Sheet Name"+sheet.getSheetName());
+
+			int rows=sheet.getLastRowNum();
+			System.out.println("No of rows in Excel sheet:"+rows);
+
+
+			testdata=findNumberOfRows(sheet,testName);
+
+			int numberOfRows=0;
+
+			for(int i=1;i<=rows;i++) {
+				XSSFRow currentRow=sheet.getRow(i);
+				if(currentRow!=null)
+				{ 
+					XSSFCell currentCell=currentRow.getCell(1);
+
+					name=currentCell.getStringCellValue(); 
+					if(name.equalsIgnoreCase(testName)) {
+						int cols=currentRow.getLastCellNum();
+						int noOfCols=0;
+
+						for(int col=2;col<cols;col++) { 
+							String value=currentRow.getCell(col).getStringCellValue();
+							testdata[numberOfRows][noOfCols]=value; noOfCols++; 
+						}
+						numberOfRows++;
+					}
+				}
+			}
+		}catch(IOException e)
+		{ System.out.println("Error occured "+e.getMessage());
+		}
+
+		return testdata; 
+	}
+
+
 	private String[][] findNumberOfRows(XSSFSheet sheet, String testName) {
 
 		int noOfRows=0;
