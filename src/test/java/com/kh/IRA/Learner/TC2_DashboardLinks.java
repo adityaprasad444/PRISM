@@ -1,4 +1,4 @@
-package com.kh.IRA.Tests;
+package com.kh.IRA.Learner;
 
 import org.testng.annotations.Test;
 

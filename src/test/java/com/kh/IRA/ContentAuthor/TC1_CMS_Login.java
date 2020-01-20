@@ -1,14 +1,12 @@
-package com.kh.IRA.Learner;
+package com.kh.IRA.ContentAuthor;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import com.kh.IRA.PageHelper.DashboardHelper;
 import com.kh.IRA.PageHelper.HomepageHelp;
 
-
-public class TC1_Login extends HomepageHelp{
+public class TC1_CMS_Login extends HomepageHelp {
 
 	@BeforeSuite
 	public void begin() {
@@ -16,15 +14,15 @@ public class TC1_Login extends HomepageHelp{
 	}
 	
 	@Test
-	public void Login() {
+	public void caLogin() {
 		url();
-		login("Credentials","Login");
+		login("CMS","Login");
 	}
 	
 	@AfterSuite
 	public void end() {
-		DashboardHelper.logout();
+		
 		destroy();
 	}
+	
 }
-
