@@ -34,15 +34,15 @@ public class HomepageHelp extends TestBase {
 		asrt.assertAll();
 	}
 	
-	public void login() {
+	public void loginFromProperty() {
 		driver.findElement(By.xpath(hp.getUsername())).sendKeys(gp.getusername());
 		driver.findElement(By.xpath(hp.getPassword())).sendKeys(gp.getpassword());
 		driver.findElement(By.xpath(hp.getSubmit())).click();
 		asrt.assertAll();
 	}
 	
-	public void login1() {
-	HashMap<String, String> data=ExcelReader.readTestData("Credentials", "Login");
+	public void login(String sheetName,String testName) {
+	HashMap<String, String> data=ExcelReader.readTestData(sheetName, testName);
 	String username=data.get("UserName");
 	String password=data.get("Password");
 	driver.findElement(By.xpath(hp.getUsername())).sendKeys(username);
