@@ -21,8 +21,8 @@ public class TC1_CMS_Login extends HomepageHelp {
 	
 	@AfterSuite
 	public void end() {
-		
-		destroy();
+		System.out.println("After Suite done");
+		//destroy();
 	}
 	
 }

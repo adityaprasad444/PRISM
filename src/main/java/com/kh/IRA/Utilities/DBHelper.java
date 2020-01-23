@@ -42,7 +42,7 @@ public class DBHelper {
 		Block<Document> processBlock = new Block<Document>() {
 			@Override
 			public void apply(final Document document) {
-				System.out.println(document);
+				System.out.println(document.toJson());
 			}
 		};
 
@@ -50,7 +50,7 @@ public class DBHelper {
 
 	} 
 
-	public void getdata(String table,String key,String Value,String field1,String field2, String field3 ) {
+	public void getdata(String field1, String field2, String field3, String table,String key, String Value ) {
 
 		MongoCollection<Document> collection = db.getCollection(""+table);
 
@@ -61,12 +61,11 @@ public class DBHelper {
         projection.append(field1, "$"+field1);
         projection.append(field2, "$"+field2);
         projection.append(field3, "$"+field3);
-        projection.append("_id", 0);
 		
 		Block<Document> processBlock = new Block<Document>() {
 			@Override
 			public void apply(final Document document) {
-				System.out.println(document);
+				System.out.println(document.toJson());
 			}
 		};
 
