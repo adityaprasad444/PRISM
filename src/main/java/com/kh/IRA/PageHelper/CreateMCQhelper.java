@@ -3,12 +3,9 @@ package com.kh.IRA.PageHelper;
 import java.util.HashMap;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.sikuli.script.FindFailed;
-import org.sikuli.script.Region;
-import org.sikuli.script.Screen;
 import org.testng.asserts.SoftAssert;
 
 import com.kh.IRA.Pages.CreateMCQPage;
@@ -33,7 +30,6 @@ public class CreateMCQhelper extends TestBase{
 
 	public void selectQuestionType(String type) throws FindFailed {
 		Actions act = new Actions(driver);
-		Screen s=new Screen();
 		WebElement to= driver.findElement(By.xpath(mcq.Space()));
 
 		if(type=="MCQ") {
@@ -69,11 +65,6 @@ public class CreateMCQhelper extends TestBase{
 			act.dragAndDrop(driver.findElement(By.xpath(mcq.CodeLab())), to).build().perform();
 			System.out.println();
 		}
-	}
-
-	private Object Location(int i, int j) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public void fillQuestionData() {
