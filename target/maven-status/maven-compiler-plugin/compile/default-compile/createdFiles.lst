@@ -1,5 +1,6 @@
 com\kh\IRA\PageHelper\HomepageHelp.class
 com\kh\IRA\Pages\GeneralPage.class
+com\kh\IRA\Utilities\logHelper.class
 com\kh\IRA\PageHelper\DashboardHelper.class
 com\kh\IRA\Pages\DashboardPage.class
 com\kh\IRA\Pages\CreateMCQPage.class
@@ -11,6 +12,7 @@ com\kh\IRA\Pages\HomePage.class
 com\kh\IRA\Utilities\Screenshothelp.class
 com\kh\IRA\Utilities\ExcelReader.class
 com\kh\IRA\Utilities\DBHelper$1.class
+com\kh\IRA\Pages\createCoursePage.class
 com\kh\IRA\PageHelper\CreateMCQhelper.class
 com\kh\IRA\TestBase\TestBase.class
 com\kh\IRA\Utilities\DBHelper$2.class

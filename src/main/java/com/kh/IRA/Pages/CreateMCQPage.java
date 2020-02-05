@@ -12,43 +12,43 @@ public class CreateMCQPage {
 	}
 	
 	
-	public  String CreateQuestion() {
+	public  String createQuestion() {
 		return cr.getProperty("CreateQuestion");
 	}
-	public  String MCQ() {
+	public  String mcq() {
 		return cr.getProperty("MCQ");
 	}
-	public  String MMCQ() {
+	public  String mmcq() {
 		return cr.getProperty("MMCQ");
 	}
-	public  String CodeLab() {
+	public  String codeLab() {
 		return cr.getProperty("CodeLab");
 	}
-	public  String Delete() {
+	public  String delete() {
 		return cr.getProperty("Delete");
 	}
-	public  String Space() {
+	public  String space() {
 		return cr.getProperty("Space");
 	}
-	public  String Question() {
+	public  String question() {
 		return cr.getProperty("Question");
 	}
-	public  String Option1() {
+	public  String option1() {
 		return cr.getProperty("Option1");
 	}
-	public  String Option2() {
+	public  String option2() {
 		return cr.getProperty("Option2");
 	}
-	public  String Option3() {
+	public  String option3() {
 		return cr.getProperty("Option3");
 	}
-	public  String Option4() {
+	public  String option4() {
 		return cr.getProperty("Option4");
 	}
-	public  String AddChoice() {
+	public  String addChoice() {
 		return cr.getProperty("AddChoice");
 	}
-	public  String Next() {
+	public  String next() {
 		return cr.getProperty("Next");
 	}
 }

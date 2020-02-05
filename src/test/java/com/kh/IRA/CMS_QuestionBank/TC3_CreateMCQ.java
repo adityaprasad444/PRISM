@@ -1,4 +1,4 @@
-package com.kh.IRA.ContentAuthor;
+package com.kh.IRA.CMS_QuestionBank;
 
 import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
@@ -11,9 +11,7 @@ public class TC3_CreateMCQ extends CreateMCQhelper{
 	public void newMCQ() throws InterruptedException, FindFailed {
 		
 		createQuestion();
-		Thread.sleep(2000);
 		selectQuestionType("MCQ");
-		Thread.sleep(2000);
 		fillQuestionData();
 	}
 	

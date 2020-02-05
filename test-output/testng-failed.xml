@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.kh.IRA.Utilities.Listnershelp"/>
+    <listener class-name="com.kh.IRA.Utilities.AnnotationTransformer"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login">
+        <methods>
+          <include name="begin"/>
+          <include name="caLogin"/>
+          <include name="end"/>
+        </methods>
+      </class> <!-- com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login -->
+      <class name="com.kh.IRA.CMS_QuestionBank.TC3_CreateMCQ">
+        <methods>
+          <include name="newMCQ"/>
+        </methods>
+      </class> <!-- com.kh.IRA.CMS_QuestionBank.TC3_CreateMCQ -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

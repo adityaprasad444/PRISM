@@ -5,10 +5,11 @@
 <listener class-name="com.kh.IRA.Utilities.Listnershelp"/>
 <listener class-name="com.kh.IRA.Utilities.AnnotationTransformer"/>
 </listeners>
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="com.kh.IRA.Tests.TC1_Login"/>
-      <class name="com.kh.IRA.Tests.TC2_DashboardLinks"/>
-    </classes>
-  </test> <!-- Test -->
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login" />
+			<class name="com.kh.IRA.CMS_QuestionBank.TC2_Navigation_QuestionBank" />
+			<class name="com.kh.IRA.CMS_QuestionBank.TC3_CreateMCQ" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

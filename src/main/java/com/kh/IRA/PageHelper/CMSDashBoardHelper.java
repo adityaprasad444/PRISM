@@ -23,5 +23,17 @@ public static CMSdashboardPage cdp;
 		asrt.assertAll();
 	}
 	
+	public void course() {
+		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
+		cdash.findElement(By.xpath(cdp.cmsCourses())).click();
+		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/publish/courses", "URL Not Matched");
+		asrt.assertAll();
+	}
 	
+	public void assessment() {
+		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
+		cdash.findElement(By.xpath(cdp.cmsAssessments())).click();
+		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/assessments", "URL Not Matched");
+		asrt.assertAll();
+	}
 }

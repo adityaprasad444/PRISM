@@ -1,4 +1,4 @@
-package com.kh.IRA.ContentAuthor;
+package com.kh.IRA.CMS_QuestionBank;
 
 import org.testng.annotations.Test;
 
