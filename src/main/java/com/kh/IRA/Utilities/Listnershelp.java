@@ -16,22 +16,24 @@ import com.relevantcodes.extentreports.LogStatus;
 public class Listnershelp extends TestBase implements ITestListener{
 	ExtentReports reports;
 	ExtentTest test;
+	 
 	
-
+	@Override
 	public void onTestStart(ITestResult result) {
-		System.out.println("Test Started : " +result.getMethod().getMethodName());
+		logHelper.startTestCase(result.getMethod().getMethodName());
 		test = reports.startTest(result.getMethod().getMethodName());
 		test.log(LogStatus.INFO, result.getMethod().getMethodName() + "Test is started");
 	}
 
+	@Override
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("Test Success : " +result.getName());
+		logHelper.addMessage("Test Success : " +result.getName());
 		test.log(LogStatus.PASS, result.getMethod().getMethodName() + "Test is passed");
 	}
-
+	@Override
 	public void onTestFailure(ITestResult result) {
 		String dest = null;
-		System.out.println("Test Failed : " +result.getName());
+		logHelper.addMessage("Test Failed : " +result.getName());
 		try {
 			dest=Screenshothelp.takeScreenshot();
 		} catch (IOException e) {
@@ -40,26 +42,25 @@ public class Listnershelp extends TestBase implements ITestListener{
 		test.log(LogStatus.FAIL, result.getMethod().getMethodName() + "Test is failed");
 		test.log(LogStatus.INFO, "Snapshot below: " + test.addScreenCapture(dest));
 	}
-
+	@Override
 	public void onTestSkipped(ITestResult result) {
-		System.out.println("Test Skipped : " +result.getName());
+		logHelper.addMessage("Test Skipped : " +result.getName());
 		test.log(LogStatus.SKIP, result.getMethod().getMethodName() + "Test is Skipped");
 	}
-
+	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
+		 // Not required
 
 	}
-
+	@Override
 	public void onStart(ITestContext context) {
-		System.out.println("Test Started");
-		System.out.println("------------------");
+		logHelper.addMessage("Test Started");
+		logHelper.addMessage("------------------");
 		reports = new ExtentReports(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_IRA Test Report.html");
 	}
-
+	@Override
 	public void onFinish(ITestContext context) {
-		System.out.println("------------------");
-		System.out.println("Test Ended");
+		logHelper.addEndMessage();
 		reports.endTest(test);
 		reports.flush();
 	}
