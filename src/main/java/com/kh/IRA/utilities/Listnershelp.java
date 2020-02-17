@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -16,35 +17,36 @@ import com.relevantcodes.extentreports.LogStatus;
 public class Listnershelp extends TestBase implements ITestListener{
 	ExtentReports reports;
 	ExtentTest test;
-	 
+	Logger log = Logger.getLogger(Listnershelp.class);
 	
 	@Override
 	public void onTestStart(ITestResult result) {
-		logHelper.startTestCase(result.getMethod().getMethodName());
+		log.info(result.getMethod().getMethodName());
 		test = reports.startTest(result.getMethod().getMethodName());
 		test.log(LogStatus.INFO, result.getMethod().getMethodName() + "Test is started");
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		logHelper.addMessage("Test Success : " +result.getName());
+		log.info("Test Success : " +result.getName());
 		test.log(LogStatus.PASS, result.getMethod().getMethodName() + "Test is passed");
 	}
 	@Override
 	public void onTestFailure(ITestResult result) {
 		String dest = null;
-		logHelper.addMessage("Test Failed : " +result.getName());
+		log.fatal("Test Failed : " +result.getName());
 		try {
 			dest=Screenshothelp.takeScreenshot();
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.info("context", e);
+
 		}
 		test.log(LogStatus.FAIL, result.getMethod().getMethodName() + "Test is failed");
 		test.log(LogStatus.INFO, "Snapshot below: " + test.addScreenCapture(dest));
 	}
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		logHelper.addMessage("Test Skipped : " +result.getName());
+		log.debug("Test Skipped : " +result.getName());
 		test.log(LogStatus.SKIP, result.getMethod().getMethodName() + "Test is Skipped");
 	}
 	@Override
@@ -54,24 +56,24 @@ public class Listnershelp extends TestBase implements ITestListener{
 	}
 	@Override
 	public void onStart(ITestContext context) {
-		System.out.println("Test Started");
-		System.out.println("------------------");
+		log.info("Test Started");
+		log.info("------------------");
 		try {
 			MyScreenRecorder.startRecording("IRA Test");
 		} catch (Exception e) {
 			
-			e.printStackTrace();
+			log.info("context", e);
 		}
 		reports = new ExtentReports(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_IRA Test Report.html");
 	}
 	@Override
 	public void onFinish(ITestContext context) {
-		System.out.println("------------------");
-		System.out.println("Test Ended");
+		log.info("------------------");
+		log.info("Test Ended");
 		try {
 			MyScreenRecorder.stopRecording();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.info("context", e);
 		}
 		
 		reports.endTest(test);

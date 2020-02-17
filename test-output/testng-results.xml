@@ -2,32 +2,32 @@
 <testng-results skipped="0" failed="1" ignored="0" total="3" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="38516" started-at="2020-02-17T11:48:49 IST" finished-at="2020-02-17T11:49:28 IST">
+  <suite name="Suite" duration-ms="62956" started-at="2020-02-17T12:10:50 IST" finished-at="2020-02-17T12:11:53 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="38516" started-at="2020-02-17T11:48:49 IST" finished-at="2020-02-17T11:49:28 IST">
+    <test name="Test" duration-ms="62956" started-at="2020-02-17T12:10:50 IST" finished-at="2020-02-17T12:11:53 IST">
       <class name="com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login">
-        <test-method status="PASS" signature="begin()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login@52f759d7]" name="begin" is-config="true" duration-ms="9891" started-at="2020-02-17T11:48:39 IST" finished-at="2020-02-17T11:48:49 IST">
+        <test-method status="PASS" signature="begin()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login@704d6e83]" name="begin" is-config="true" duration-ms="9974" started-at="2020-02-17T12:10:40 IST" finished-at="2020-02-17T12:10:50 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- begin -->
-        <test-method status="PASS" signature="caLogin()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login@52f759d7]" name="caLogin" duration-ms="3480" started-at="2020-02-17T11:48:49 IST" finished-at="2020-02-17T11:48:53 IST">
+        <test-method status="PASS" signature="caLogin()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login@704d6e83]" name="caLogin" duration-ms="3509" started-at="2020-02-17T12:10:50 IST" finished-at="2020-02-17T12:10:53 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- caLogin -->
-        <test-method status="PASS" signature="end()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login@52f759d7]" name="end" is-config="true" duration-ms="0" started-at="2020-02-17T11:49:28 IST" finished-at="2020-02-17T11:49:28 IST">
+        <test-method status="PASS" signature="end()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login@704d6e83]" name="end" is-config="true" duration-ms="0" started-at="2020-02-17T12:11:53 IST" finished-at="2020-02-17T12:11:53 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
       </class> <!-- com.kh.IRA.CMS_QuestionBank.TC1_CMS_Login -->
       <class name="com.kh.IRA.CMS_QuestionBank.TC2_Navigation_QuestionBank">
-        <test-method status="PASS" signature="QuestionBank()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC2_Navigation_QuestionBank@7cbd213e]" name="QuestionBank" duration-ms="1576" started-at="2020-02-17T11:48:53 IST" finished-at="2020-02-17T11:48:55 IST">
+        <test-method status="PASS" signature="QuestionBank()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC2_Navigation_QuestionBank@43a0cee9]" name="QuestionBank" duration-ms="1666" started-at="2020-02-17T12:10:53 IST" finished-at="2020-02-17T12:10:55 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- QuestionBank -->
       </class> <!-- com.kh.IRA.CMS_QuestionBank.TC2_Navigation_QuestionBank -->
       <class name="com.kh.IRA.CMS_QuestionBank.TC3_CreateMCQ">
-        <test-method status="FAIL" signature="newMCQ()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC3_CreateMCQ@192d3247]" name="newMCQ" duration-ms="32936" started-at="2020-02-17T11:48:55 IST" finished-at="2020-02-17T11:49:27 IST">
+        <test-method status="FAIL" signature="newMCQ()[pri:0, instance:com.kh.IRA.CMS_QuestionBank.TC3_CreateMCQ@eb21112]" name="newMCQ" duration-ms="57248" started-at="2020-02-17T12:10:55 IST" finished-at="2020-02-17T12:11:52 IST">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="simple-tabpanel-0"]/div/div[1]/div[1]/div/p"}
@@ -36,8 +36,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-0VB4MT4', ip: '10.11.2.212', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.106, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADITYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:62693}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 369e9cb2a3377648fb43498e59555f22
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.106, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADITYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63040}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c50ce89d542c2a23a0ee94d630705fb2
 *** Element info: {Using=xpath, value=//*[@id="simple-tabpanel-0"]/div/div[1]/div[1]/div/p}]]>
             </message>
             <full-stacktrace>
@@ -47,8 +47,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-0VB4MT4', ip: '10.11.2.212', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.106, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADITYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:62693}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 369e9cb2a3377648fb43498e59555f22
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.106, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADITYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63040}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c50ce89d542c2a23a0ee94d630705fb2
 *** Element info: {Using=xpath, value=//*[@id="simple-tabpanel-0"]/div/div[1]/div[1]/div/p}
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)

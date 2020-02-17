@@ -101,7 +101,16 @@
 			<artifactId>monte-screen-recorder</artifactId>
 			<version>0.7.7.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/findbugs-maven-plugin -->
+		<dependency>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>findbugs-maven-plugin</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+
 	</dependencies>
+
+
 	<build>
 		<plugins>
 			<plugin>
@@ -122,6 +131,11 @@
 						<suiteXmlFile>CMStestng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
 			</plugin>
 		</plugins>
 	</build>
