@@ -2,6 +2,7 @@ package com.kh.IRA.Utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -12,7 +13,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
 
-	public static HashMap<String,String> readTestData(String sheetName,String testName)
+	public static String filePath;
+	
+	public ExcelReader(String path) throws FileNotFoundException{
+	filePath=	new FileInputStream(System.getProperty("user.dir")+path);
+	System.out.println(filePath);
+	}
+
+	public HashMap<String,String> readTestData(String sheetName,String testName)
 	{
 		HashMap<String,String> testDataMap=new HashMap<String,String>();
 
@@ -20,7 +28,7 @@ public class ExcelReader {
 		String name=null;
 		try
 		{
-			FileInputStream fis=new FileInputStream(new File("./src/main/resources/com/kh/IRA/TestData/TestData.xlsx"));
+			FileInputStream fis=new FileInputStream(new File(filePath));
 			workbook=new XSSFWorkbook(fis);
 			XSSFSheet sheet=workbook.getSheet(sheetName);
 			System.out.println("Sheet Name:"+sheet.getSheetName());
@@ -66,7 +74,7 @@ public class ExcelReader {
 		XSSFWorkbook workbook=null;
 		String name=null;
 		try { 
-			FileInputStream fis=new FileInputStream(new File("./src/main/resources/com/kh/IRA/TestData/TestData.xlsx"));
+			FileInputStream fis=new FileInputStream(new File(filePath));
 			workbook=new XSSFWorkbook(fis);
 			XSSFSheet sheet=workbook.getSheet(sheetName);
 			System.out.println("Sheet Name"+sheet.getSheetName());

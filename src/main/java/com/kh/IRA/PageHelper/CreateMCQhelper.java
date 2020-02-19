@@ -15,12 +15,12 @@ import com.kh.IRA.Utilities.ExcelReader;
 public class CreateMCQhelper extends TestBase{
 
 	public static CreateMCQPage mcq;
-
+	public static ExcelReader er;
 
 	public CreateMCQhelper() {
 		mcq=new CreateMCQPage();
 		asrt=new SoftAssert();
-
+		er=new ExcelReader("./src/main/resources/com/kh/IRA/TestData/TestData.xlsx");
 	}
 
 	public void createQuestion() {
@@ -69,7 +69,7 @@ public class CreateMCQhelper extends TestBase{
 	}
 
 	public void fillQuestionData() {
-		HashMap<String, String> data=ExcelReader.readTestData("MCQ","MCQ");		
+		HashMap<String, String> data=er.readTestData("MCQ","MCQ");		
 		driver.findElement(By.xpath(mcq.question())).sendKeys(data.get("Question"));
 		driver.findElement(By.xpath(mcq.option1())).sendKeys(data.get("Option1"));
 		driver.findElement(By.xpath(mcq.option2())).sendKeys(data.get("Option2"));

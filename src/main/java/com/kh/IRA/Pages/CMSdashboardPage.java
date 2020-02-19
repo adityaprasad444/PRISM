@@ -24,4 +24,7 @@ public class CMSdashboardPage {
 	public  String cmsCourses() {
 		return cr.getProperty("Courses");
 	}
+	public  String skillmap() {
+		return cr.getProperty("skillmap");
+	}
 }

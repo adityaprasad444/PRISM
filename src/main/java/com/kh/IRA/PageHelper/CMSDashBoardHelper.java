@@ -36,4 +36,11 @@ public static CMSdashboardPage cdp;
 		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/assessments", "URL Not Matched");
 		asrt.assertAll();
 	}
+	
+	public void skillMap() {
+		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
+		cdash.findElement(By.xpath(cdp.skillmap())).click();
+		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/publish/skill-map", "URL Not Matched");
+		asrt.assertAll();
+	}
 }
