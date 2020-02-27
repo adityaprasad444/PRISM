@@ -16,7 +16,7 @@ public class Login extends HomepageHelp {
 	@Test
 	public void caLogin() {
 		url();
-		login("CMS","Login");
+		login("TestCredentials","CALogin");
 	}
 	
 	@AfterSuite

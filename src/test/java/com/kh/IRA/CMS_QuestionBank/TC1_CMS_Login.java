@@ -16,13 +16,13 @@ public class TC1_CMS_Login extends HomepageHelp {
 	@Test
 	public void caLogin() {
 		url();
-		login("CMS","Login");
+		login("TestCredentials","ManagerLogin");
 	}
 	
 	@AfterSuite
 	public void end() {
 		System.out.println("After Suite done");
-		//destroy();
+		destroy();
 	}
 	
 }

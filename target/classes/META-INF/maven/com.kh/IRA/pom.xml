@@ -128,7 +128,7 @@
 				<version>2.22.2</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>CMStestng.xml</suiteXmlFile>
+						<suiteXmlFile>SkillMap.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

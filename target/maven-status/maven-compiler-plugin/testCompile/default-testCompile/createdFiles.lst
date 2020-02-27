@@ -1,6 +1,9 @@
 com\kh\IRA\CMS_CourseCreation\TC2_NavigationtoCreateCourse.class
 com\kh\IRA\CMS_QuestionBank\TC1_CMS_Login.class
+com\kh\IRA\CMS_QuestionBank\TC2_Navigation_QuestionBank.class
+com\kh\IRA\SkillMap\Login.class
 com\kh\IRA\CMS_QuestionBank\TC3_CreateMCQ.class
 com\kh\IRA\Learner\TC1_Login.class
 com\kh\IRA\Learner\TC2_DashboardLinks.class
-com\kh\IRA\CMS_QuestionBank\TC2_Navigation_QuestionBank.class
+com\kh\IRA\SkillMap\Navigate.class
+com\kh\IRA\SkillMap\SkillMapTest.class

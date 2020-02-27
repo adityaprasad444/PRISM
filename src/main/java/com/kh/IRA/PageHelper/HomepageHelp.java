@@ -14,13 +14,11 @@ public class HomepageHelp extends TestBase {
 
 	public GeneralPage gp;
 	public HomePage hp;
-	public ExcelReader er;
 
 	public HomepageHelp() {
 
 		gp=new GeneralPage();
 		hp=new HomePage();
-		er=new ExcelReader("//src//main//resources//com//kh//IRA//TestData//TestData.xlsx");
 		asrt= new SoftAssert();
 	}
 
@@ -44,7 +42,7 @@ public class HomepageHelp extends TestBase {
 	}
 
 	public void login(String sheetName,String testName) {
-		HashMap<String,String> data=er.readTestData(sheetName, testName);
+		HashMap<String,String> data=ExcelReader.readTestData(sheetName, testName);
 		String username=data.get("UserName");
 		String password=data.get("Password");
 		driver.findElement(By.xpath(hp.getUsername())).sendKeys(username);

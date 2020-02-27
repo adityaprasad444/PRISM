@@ -9,23 +9,13 @@ public class SkillMapTest extends SkillMapPageHelper {
 	
 	
 	@Test
-	public void skillTest() {
+	public void skillTest() throws InterruptedException {
 		
-		createSkill("SkillMap", "Skill");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		createSubSkill("SkillMap1", "Subskill");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		createComptency("SkillMap2", "Competency");
+		createSkill("SkillMap", "AddSkill");
+		Thread.sleep(3000);
+		createSubSkill("SkillMap", "AddSkill");
+		Thread.sleep(3000);
+		createComptency("SkillMap", "AddSkill");
 	}
 	
 }

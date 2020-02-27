@@ -59,7 +59,7 @@ public class Listnershelp extends TestBase implements ITestListener{
 		log.info("Test Started");
 		log.info("------------------");
 		try {
-			MyScreenRecorder.startRecording("IRA Test");
+			myScreenRecorder.startRecording("IRA Test");
 		} catch (Exception e) {
 			
 			log.info("context", e);
@@ -71,7 +71,7 @@ public class Listnershelp extends TestBase implements ITestListener{
 		log.info("------------------");
 		log.info("Test Ended");
 		try {
-			MyScreenRecorder.stopRecording();
+			myScreenRecorder.stopRecording();
 		} catch (Exception e) {
 			log.info("context", e);
 		}
