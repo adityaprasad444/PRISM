@@ -25,12 +25,12 @@ public class ExcelReader {
 			
 			XSSFSheet sheet=workbook.getSheet(sheetName);
 			
-			System.out.println("Sheet Name:"+sheet.getSheetName());
+			//System.out.println("Sheet Name:"+sheet.getSheetName());
 			
 			int rowsize=sheet.getLastRowNum();
-			System.out.println(rowsize);
+			//System.out.println(rowsize);
 			
-			System.out.println("Number of rows in the Excel sheet:: "+rowsize);
+			//System.out.println("Number of rows in the Excel sheet:: "+rowsize);
 			for(int i=1;i<=rowsize;i++)
 			{
 				XSSFRow currentRow=sheet.getRow(i);

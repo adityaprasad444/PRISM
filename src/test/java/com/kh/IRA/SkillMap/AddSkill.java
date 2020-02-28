@@ -4,17 +4,15 @@ import org.testng.annotations.Test;
 
 import com.kh.IRA.PageHelper.SkillMapPageHelper;
 
-public class SkillMapTest extends SkillMapPageHelper {
+public class AddSkill extends SkillMapPageHelper {
 
 	
 	
-	@Test
-	public void skillTest() throws InterruptedException {
+	@Test(groups = "skillmap")
+	public void AddSillSubskillCompetency() {
 		
 		createSkill("SkillMap", "AddSkill");
-		Thread.sleep(3000);
 		createSubSkill("SkillMap", "AddSkill");
-		Thread.sleep(3000);
 		createComptency("SkillMap", "AddSkill");
 	}
 	

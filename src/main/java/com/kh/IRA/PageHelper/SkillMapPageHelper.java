@@ -1,8 +1,6 @@
 package com.kh.IRA.PageHelper;
 
 import java.util.HashMap;
-import java.util.Random;
-
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
@@ -26,26 +24,35 @@ public class SkillMapPageHelper extends TestBase {
 		HashMap<String, String> data=ExcelReader.readTestData(sheetName, testName);
 		String s1=data.get("Skill");
 		String skill=s1+ Integer.toString(random);
+		waitUntilVisibilityOfElement(driver.findElement(By.xpath(smp.addnewskill())));
 		driver.findElement(By.xpath(smp.addnewskill())).click();
 		driver.findElement(By.xpath(smp.textbox())).sendKeys(skill);
-		driver.findElement(By.xpath(smp.addbutton())).click();	
+		driver.findElement(By.xpath(smp.addbutton())).click();
+		String message=readSnackbar();
+		asrt.assertEquals(message, skill+" Skill Added.", "Skill added not matching");	
 	}
 	public void createSubSkill(String sheetName,String testName) {
 		int random=RandomDataGenerator.getRandomNumber();
 		HashMap<String, String> data=ExcelReader.readTestData(sheetName, testName);
 		String s1=data.get("Subskill");
 		String subskill=s1+ Integer.toString(random);
+		waitUntilVisibilityOfElement(driver.findElement(By.xpath(smp.addsubskill())));
 		driver.findElement(By.xpath(smp.addsubskill())).click();
 		driver.findElement(By.xpath(smp.textbox())).sendKeys(subskill);
 		driver.findElement(By.xpath(smp.addbutton())).click();
+		String message=readSnackbar();
+		asrt.assertEquals(message, subskill+" Sub-Skill Added.", "SubSkill added not matching");	
 	}
 	public void createComptency(String sheetName,String testName) {
 		int random=RandomDataGenerator.getRandomNumber();
 		HashMap<String, String> data=ExcelReader.readTestData(sheetName, testName);
 		String s1=data.get("Competency");
 		String competency=s1+ Integer.toString(random);
+		waitUntilVisibilityOfElement(driver.findElement(By.xpath(smp.addcompetency())));
 		driver.findElement(By.xpath(smp.addcompetency())).click();
 		driver.findElement(By.xpath(smp.textbox())).sendKeys(competency);
 		driver.findElement(By.xpath(smp.addbutton())).click();
+		String message=readSnackbar();
+		asrt.assertEquals(message, competency+" Competency Added.", "Competency added not matching");	
 	}
 }

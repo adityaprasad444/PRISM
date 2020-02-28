@@ -4,12 +4,12 @@
 <listeners>
 <listener class-name="com.kh.IRA.Utilities.Listnershelp"/>
 <listener class-name="com.kh.IRA.Utilities.AnnotationTransformer"/>
-</listeners>
+</listeners> 
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.kh.IRA.SkillMap.Login"/>
       <class name="com.kh.IRA.SkillMap.Navigate"/>
-      <class name="com.kh.IRA.SkillMap.SkillMapTest"/>
+      <class name="com.kh.IRA.SkillMap.AddSkill"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

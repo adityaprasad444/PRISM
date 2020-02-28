@@ -13,16 +13,15 @@ public class Login extends HomepageHelp {
 		browser();
 	}
 	
-	@Test
-	public void caLogin() {
+	@Test(groups = "skillmap")
+	public void contentOpsLogin() {
 		url();
 		login("TestCredentials","CALogin");
 	}
 	
 	@AfterSuite
 	public void end() {
-		System.out.println("After Suite done");
-		//destroy();
+		destroy();
 	}
 	
 }

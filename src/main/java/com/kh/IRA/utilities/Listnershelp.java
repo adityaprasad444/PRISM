@@ -28,8 +28,18 @@ public class Listnershelp extends TestBase implements ITestListener{
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
+		String dest = null;
 		log.info("Test Success : " +result.getName());
+		try {
+			dest=Screenshothelp.takeScreenshot();
+		} catch (IOException e) {
+			log.info("context", e);
+
+		}
+		
 		test.log(LogStatus.PASS, result.getMethod().getMethodName() + "Test is passed");
+		test.log(LogStatus.INFO, "Screenshot below: " + test.addScreenCapture(dest));
+		
 	}
 	@Override
 	public void onTestFailure(ITestResult result) {

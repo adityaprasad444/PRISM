@@ -2,15 +2,16 @@ package com.kh.IRA.TestBase;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
 import org.testng.asserts.SoftAssert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -53,4 +54,27 @@ public class TestBase {
 		driver.close();
 		driver.quit();
 	}
+
+	public static void waitUntilVisibilityOfElement(WebElement element)
+	{
+		WebDriverWait wait=new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	public static void highlightElement(WebDriver driver, WebElement element) throws InterruptedException {
+		// Creating JavaScriptExecuter Interface
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Execute javascript
+		js.executeScript("arguments[0].style.border='4px solid yellow'", element);
+		Thread.sleep(3000);
+		js.executeScript("arguments[0].style.border=''", element);
+	}
+
+	public static String readSnackbar() {
+		WebDriverWait wait=new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath("//div[contains(@class, 'MuiSnackbar-root')]"))));
+		WebElement snackbar=driver.findElement(By.xpath("//div[contains(@class, 'MuiSnackbar-root')]"));
+		String message=snackbar.getText();
+		return message;
+	}
+
 }

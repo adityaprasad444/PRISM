@@ -6,8 +6,8 @@ import com.kh.IRA.PageHelper.CMSDashBoardHelper;
 
 public class Navigate extends CMSDashBoardHelper{
 
-	@Test
-	public void navigate() {
+	@Test(groups = "skillmap")
+	public void navigateToSkillMap() {
 		skillMap();
 	}
 }
