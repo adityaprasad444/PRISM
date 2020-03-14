@@ -110,7 +110,6 @@ public class CreateAssessmentHelper extends TestBase{
 		List<WebElement> attempt=driver.findElements(By.xpath(cap.attemptList()));
 		int num= rand.nextInt(attempt.size());
 		attempt.get(num).click();
-		System.out.println("limit set to: "+attempt.get(num));
 	}
 
 	//sending pass percentage 
@@ -196,16 +195,19 @@ public class CreateAssessmentHelper extends TestBase{
 
 		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
 
+			
 			List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
 
 			for (int i=1;i<cb.size();i++) { 
 
 				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();
+				
+				
 				//if i=2 then 2 checkboxes will be clicked.
 				if(i==2) {
 					break;
 				}
-
+				
 			}
 			WebElement element = driver.findElement(By.xpath(cap.confirmSelection()));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
