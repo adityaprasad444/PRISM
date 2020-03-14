@@ -1,13 +1,14 @@
 package com.kh.IRA.pagehelper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -65,7 +66,7 @@ public class CreateAssessmentHelper extends TestBase{
 			selectPassPercentage(mock);
 			selectTimerAndSetTime(mock);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-			
+
 		}else if(type.equalsIgnoreCase("Group")) {
 			String group="CreateGroup";
 			fillData(group);
@@ -79,13 +80,13 @@ public class CreateAssessmentHelper extends TestBase{
 			selectTimeZone(group);
 			selectTime(group);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-			
+
 		}else if (type.equalsIgnoreCase("Recall")) {
 
 			fillData("CreateRecall");
 			selectAssessmentType(3);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-			
+
 		}else if(type.equalsIgnoreCase("Regular")) {
 
 			fillData("CreateRegular");
@@ -111,13 +112,13 @@ public class CreateAssessmentHelper extends TestBase{
 		attempt.get(num).click();
 		System.out.println("limit set to: "+attempt.get(num));
 	}
-	
+
 	//sending pass percentage 
 	public void selectPassPercentage(String testName) {
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
 		driver.findElement(By.xpath(cap.passPercentage())).sendKeys(data.get("PassPercentage"));
 	}
-	
+
 	//selectig assessment level timer and sending time from excel
 	public void selectTimerAndSetTime(String testName) {
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
@@ -125,7 +126,7 @@ public class CreateAssessmentHelper extends TestBase{
 		driver.findElement(By.xpath(cap.assessmentTimer())).click();
 		driver.findElement(By.xpath(cap.assessmentTime())).sendKeys(data.get("Time"));
 	}
-	
+
 	//selecting timezone using Attempt list locator for ddl list
 	public void selectTimeZone(String testName) {
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
@@ -133,14 +134,14 @@ public class CreateAssessmentHelper extends TestBase{
 		List<WebElement> zones=driver.findElements(By.xpath(cap.attemptList()));
 		for (WebElement zone : zones)
 		{
-		    if (zone.getText().equals(data.get("TimeZone")))
-		    {
-		        zone.click(); // click the desired Timezone
-		        break;
-		    }
+			if (zone.getText().equals(data.get("TimeZone")))
+			{
+				zone.click(); // click the desired Timezone
+				break;
+			}
 		}
 	}
-	
+
 	//Adding Start & End Time for the assessment
 	public void selectTime(String testName) {
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
@@ -151,36 +152,84 @@ public class CreateAssessmentHelper extends TestBase{
 		startTime.sendKeys(data.get("StartTime"));
 		endTime.sendKeys(data.get("EndTime"));
 	}
-	
+
 	//selecting logo
 	public void selectlogo() {
 		String filepath = "C:\\Users\\AdityaPrasad\\Desktop\\SeleniumScript\\IRA\\src\\main\\resources\\com\\kh\\IRA\\TestData\\";
-        Screen s = new Screen();
-        Pattern fileInputTextBox = new Pattern(filepath + "FileTextBox.PNG");
-        Pattern openButton = new Pattern(filepath + "OpenButton.PNG");
-		
+		Screen s = new Screen();
+		Pattern fileInputTextBox = new Pattern(filepath + "FileTextBox.PNG");
+		Pattern openButton = new Pattern(filepath + "OpenButton.PNG");
+
 		driver.findElement(By.xpath(cap.selectlogo())).click();
-		
+
 		try {
 			s.wait(fileInputTextBox, 20);
 		} catch (FindFailed e) {
-			
+
 			e.printStackTrace();
 		}
-        try {
-			s.type(fileInputTextBox, filepath +"KHLogo.png");
+		try {
+			s.type(fileInputTextBox, filepath +"Kh_Logo.png");
 		} catch (FindFailed e) {
-			
+
 			e.printStackTrace();
 		}
-        try {
+		try {
 			s.click(openButton);
 		} catch (FindFailed e) {
-			
+
 			e.printStackTrace();
 		}
-        
-               
-        driver.findElement(By.xpath(cap.logoUpload())).click();
+
+
+		driver.findElement(By.xpath(cap.logoUpload())).click();
 	}
+
+	public void selectQuestions() {
+
+		driver.findElement(By.xpath(cap.selectQuestion())).click();
+		//Selecting page size to 50 records
+		WebElement ddl=driver.findElement(By.xpath(cap.ddlPagination()));
+		waitUntilVisibilityOfElement(ddl);
+		ddl.click();
+		driver.findElement(By.xpath(cap.pagesize50())).click();
+
+		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
+
+			List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
+
+			for (int i=1;i<cb.size();i++) { 
+
+				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();
+				//if i=2 then 2 checkboxes will be clicked.
+				if(i==2) {
+					break;
+				}
+
+			}
+			WebElement element = driver.findElement(By.xpath(cap.confirmSelection()));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+			try { 
+				Thread.sleep(1000);
+				if(driver.findElement(By.xpath(cap.nextpage())).isDisplayed()) {
+					Thread.sleep(1000);
+					driver.findElement(By.xpath(cap.nextpage())).click();
+					Thread.sleep(2000);
+				}
+
+			}catch(Exception e){
+
+				e.printStackTrace();
+			}
+			try {
+				if(driver.findElement(By.xpath(cap.lastpagedisablednext())).isDisplayed()) {
+					break;
+				}
+			}catch(Exception e) { }
+		} // while end
+
+		driver.findElement(By.xpath(cap.confirmSelection())).click();
+		driver.findElement(By.xpath(cap.createAssessment1())).click();
+	} 
+
 }

@@ -49,8 +49,8 @@ public class TestBase {
 	public static void browsersettings() {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().setScriptTimeout(45, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		//driver.manage().timeouts().setScriptTimeout(45, TimeUnit.SECONDS);
 	}
 
 	public static void destroy() {

@@ -39,6 +39,10 @@ public class CreateAssessmentPage {
 	public  String assessmentTime() {
 		return cr.getProperty("AssessmentTime");
 	}
+	public  String timeZone() {
+		return cr.getProperty("Timezone");
+	}
+	
 	public  String timeFields() {
 		return cr.getProperty("TimeFields");
 	}
@@ -51,9 +55,7 @@ public class CreateAssessmentPage {
 	public  String attemptList() {
 		return cr.getProperty("Attemptlist");
 	}
-	public  String timeZone() {
-		return cr.getProperty("Timezone");
-	}
+	
 	public  String selectlogo() {
 		return cr.getProperty("selectlogo");
 	}
@@ -65,5 +67,60 @@ public class CreateAssessmentPage {
 	}
 	public  String logoUpload() {
 		return cr.getProperty("upload");
+	}
+	
+	public  String selectQuestion() {
+		return cr.getProperty("SelectQuestion");
+	}
+	public  String updateAssessment() {
+		return cr.getProperty("UpdateAssessment");
+	}
+	public  String addMoreQuestions() {
+		return cr.getProperty("addMoreQuestions");
+	}
+	public  String selectCheckbox() {
+		return cr.getProperty("SelectCheckbox");
+	}
+	public  String confirmSelection() {
+		return cr.getProperty("confirmSelection");
+	}
+	public  String ddlPagination() {
+		return cr.getProperty("ddlPagination");
+	}
+	public  String pagesize5() {
+		return cr.getProperty("pagesize5");
+	}
+	public  String pagesize10() {
+		return cr.getProperty("pagesize10");
+	}
+	public  String pagesize25() {
+		return cr.getProperty("pagesize25");
+	}
+	public  String pagesize50() {
+		return cr.getProperty("pagesize50");
+	}
+	public  String pagination() {
+		return cr.getProperty("pagination");
+	}
+	public  String pagestatus() {
+		return cr.getProperty("pagestatus");
+	}
+	public  String c1() {
+		return cr.getProperty("checkbox_click1");
+	}
+	public  String c2() {
+		return cr.getProperty("checkbox_click2");
+	}
+	public  String nextpage() {
+		return cr.getProperty("nextpage");
+	}
+	public  String previouspage() {
+		return cr.getProperty("previouspage");
+	}
+	public  String lastpagedisablednext() {
+		return cr.getProperty("lastpagedisablednext");
+	}
+	public  String createAssessment1() {
+		return cr.getProperty("createAssessment1");
 	}
 }

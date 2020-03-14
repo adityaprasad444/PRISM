@@ -9,6 +9,7 @@ public class TC2_CreateMock extends CreateAssessmentHelper{
 	@Test
 	public void createMock() {
 		gotoCreatepage();
-		fillAssessmentDetails("Regular");
+		fillAssessmentDetails("regular");
+		selectQuestions();
 	}
 }

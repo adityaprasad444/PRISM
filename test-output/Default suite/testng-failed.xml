@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.IRA.Assessments.TC1_Login_Ops">
+      <class name="com.IRA.Assessments.TC2_CreateMock">
         <methods>
-          <include name="begin"/>
-          <include name="caLogin"/>
-          <include name="end"/>
+          <include name="createMock"/>
         </methods>
-      </class> <!-- com.IRA.Assessments.TC1_Login_Ops -->
+      </class> <!-- com.IRA.Assessments.TC2_CreateMock -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
