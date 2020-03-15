@@ -10,25 +10,27 @@ public class TC2_CreateMock extends CreateAssessmentHelper{
 	public void createMock() {
 		gotoCreatepage();
 		fillAssessmentDetails("Mock");
-		selectQuestions();
+
 	}
-	
+
 	@Test(priority=2)
-	public void createRegular() {
+	public void createRegular() { 
 		gotoCreatepage();
 		fillAssessmentDetails("regular");
-		selectQuestions();
 	}
+
 	@Test(priority=3)
 	public void createGroup() {
 		gotoCreatepage();
 		fillAssessmentDetails("Group");
-		selectQuestions();
+
 	}
+
 	@Test(priority=4)
-	public void createRecall() {
+	public void createRecall() { 
 		gotoCreatepage();
 		fillAssessmentDetails("recall");
-		selectQuestions();
+
 	}
+
 }

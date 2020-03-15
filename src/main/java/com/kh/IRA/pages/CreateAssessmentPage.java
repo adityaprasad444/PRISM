@@ -123,4 +123,7 @@ public class CreateAssessmentPage {
 	public  String createAssessment1() {
 		return cr.getProperty("createAssessment1");
 	}
+	public  String questionsSelected() {
+		return cr.getProperty("questionsSelected");
+	}
 }

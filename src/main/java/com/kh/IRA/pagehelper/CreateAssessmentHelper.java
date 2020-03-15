@@ -66,7 +66,8 @@ public class CreateAssessmentHelper extends TestBase{
 			selectPassPercentage(mock);
 			selectTimerAndSetTime(mock);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-
+			selectQuestions(mock);
+			
 		}else if(type.equalsIgnoreCase("Group")) {
 			String group="CreateGroup";
 			fillData(group);
@@ -80,13 +81,13 @@ public class CreateAssessmentHelper extends TestBase{
 			selectTimeZone(group);
 			selectTime(group);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-
+			selectQuestions(group);
 		}else if (type.equalsIgnoreCase("Recall")) {
 
 			fillData("CreateRecall");
 			selectAssessmentType(3);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-
+			selectQuestions("CreateRecall");
 		}else if(type.equalsIgnoreCase("Regular")) {
 
 			fillData("CreateRegular");
@@ -95,6 +96,7 @@ public class CreateAssessmentHelper extends TestBase{
 			selectPassPercentage("CreateRegular");
 			selectTimerAndSetTime("CreateRegular");
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
+			selectQuestions("CreateRegular");
 		}
 	}
 
@@ -183,7 +185,9 @@ public class CreateAssessmentHelper extends TestBase{
 		driver.findElement(By.xpath(cap.logoUpload())).click();
 	}
 
-	public void selectQuestions() {
+	public void selectQuestions(String testName) {
+		
+		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
 
 		driver.findElement(By.xpath(cap.selectQuestion())).click();
 		//Selecting page size to 50 records
@@ -192,45 +196,48 @@ public class CreateAssessmentHelper extends TestBase{
 		ddl.click();
 		driver.findElement(By.xpath(cap.pagesize50())).click();
 
+		//while loop start
 		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
+		List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
 
-			
-			List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
+		int k=rand.nextInt(cb.size());
+		for (int i=1;i<cb.size();i++) { //This will click on the checkbox of given size in if loop.
 
-			for (int i=1;i<cb.size();i++) { 
-
-				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();
-				
-				
-				//if i=2 then 2 checkboxes will be clicked.
-				if(i==2) {
-					break;
+				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();	
+				if (i==2){
+					break; 
 				}
-				
 			}
+		//getting selected questions count in the question select page
+			String questions=driver.findElement(By.xpath(cap.questionsSelected())).getText().substring(19, 21).trim();
 			WebElement element = driver.findElement(By.xpath(cap.confirmSelection()));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-			try { 
-				Thread.sleep(1000);
-				if(driver.findElement(By.xpath(cap.nextpage())).isDisplayed()) {
+			int selectedquestions=Integer.parseInt(questions);
+		
+			if(selectedquestions==Integer.parseInt(data.get("Number of Questions"))) {
+				break;
+			}else { 
+				try { 
 					Thread.sleep(1000);
-					driver.findElement(By.xpath(cap.nextpage())).click();
-					Thread.sleep(2000);
+					if(driver.findElement(By.xpath(cap.nextpage())).isDisplayed()) {
+						Thread.sleep(1000);
+						driver.findElement(By.xpath(cap.nextpage())).click();
+						Thread.sleep(2000);
+					}
+
+				}catch(Exception e){
+
+					e.printStackTrace();
 				}
-
-			}catch(Exception e){
-
-				e.printStackTrace();
-			}
-			try {
-				if(driver.findElement(By.xpath(cap.lastpagedisablednext())).isDisplayed()) {
-					break;
-				}
-			}catch(Exception e) { }
-		} // while end
-
+				try {
+					if(driver.findElement(By.xpath(cap.lastpagedisablednext())).isDisplayed()) {
+						break;
+					}
+				}catch(Exception e) { }
+			} 
+		}// while end
 		driver.findElement(By.xpath(cap.confirmSelection())).click();
 		driver.findElement(By.xpath(cap.createAssessment1())).click();
-	} 
 
+	}
 }
