@@ -145,7 +145,6 @@ public class CreateAssessmentHelper extends TestBase{
 	public void selectTime(String testName) {
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
 		List <WebElement> times=driver.findElements(By.xpath(cap.timeFields()));
-		System.out.println(times);
 		WebElement startTime=times.get(0);
 		WebElement endTime=times.get(1);
 		startTime.sendKeys(data.get("StartTime"));

@@ -7,11 +7,13 @@ com\kh\IRA\pagehelper\CreateMCQhelper.class
 com\kh\IRA\utilities\ExcelReader.class
 com\kh\IRA\pages\GeneralPage.class
 com\kh\IRA\utilities\RandomDataGenerator.class
+com\kh\IRA\pagehelper\CreateAssessmentHelper.class
 com\kh\IRA\pages\DashboardPage.class
 com\kh\IRA\pages\createCoursePage.class
 com\kh\IRA\pages\CreateMCQPage.class
 com\kh\IRA\pagehelper\DashboardHelper.class
 com\kh\IRA\testbase\TestBase.class
+com\kh\IRA\pages\CreateAssessmentPage.class
 com\kh\IRA\utilities\myScreenRecorder.class
 com\kh\IRA\pagehelper\SkillMapPageHelper.class
 com\kh\IRA\utilities\Configreader.class
