@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 import com.kh.IRA.pagehelper.CMSDashBoardHelper;
 import com.kh.IRA.pagehelper.HomepageHelp;
-import com.kh.IRA.pages.CMSdashboardPage;
 
 public class TC1_CMS_Login extends HomepageHelp {
 

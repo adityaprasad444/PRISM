@@ -1,11 +1,8 @@
 package com.kh.IRA.pagehelper;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -31,6 +28,12 @@ public class CreateAssessmentHelper extends TestBase{
 	}
 
 	public void gotoCreatepage() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
 		WebElement create= driver.findElement(By.xpath(cap.createAssessment()));
 		waitUntilVisibilityOfElement(create);
 		create.click();
@@ -57,11 +60,14 @@ public class CreateAssessmentHelper extends TestBase{
 
 	//0-Regular, 1- Group, 2-Mock & 3- Recall_Quiz
 	public void fillAssessmentDetails(String type) {
-
+		
 		if(type.equalsIgnoreCase("Mock")) {
 			String mock="CreateMock";
 			fillData(mock);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			selectAssessmentType(2);
+			selectlogo();
 			selectNoOfAttempts();
 			selectPassPercentage(mock);
 			selectTimerAndSetTime(mock);
@@ -75,6 +81,7 @@ public class CreateAssessmentHelper extends TestBase{
 			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			selectAssessmentType(1);
 			selectlogo();
+			driver.findElement(By.xpath(cap.sender())).sendKeys("Automation Group Email");
 			selectNoOfAttempts();
 			selectPassPercentage(group);
 			selectTimerAndSetTime(group);
@@ -83,20 +90,25 @@ public class CreateAssessmentHelper extends TestBase{
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(group);
 		}else if (type.equalsIgnoreCase("Recall")) {
-
-			fillData("CreateRecall");
+			String recall="CreateRecall";
+			fillData(recall);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			selectAssessmentType(3);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-			selectQuestions("CreateRecall");
+			selectQuestions(recall);
+			
 		}else if(type.equalsIgnoreCase("Regular")) {
-
-			fillData("CreateRegular");
+			String regular="CreateRegular";
+			fillData(regular);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			selectAssessmentType(0);
 			selectNoOfAttempts();
-			selectPassPercentage("CreateRegular");
-			selectTimerAndSetTime("CreateRegular");
+			selectPassPercentage(regular);
+			selectTimerAndSetTime(regular);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
-			selectQuestions("CreateRegular");
+			selectQuestions(regular);
 		}
 	}
 
@@ -200,16 +212,17 @@ public class CreateAssessmentHelper extends TestBase{
 		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
 		List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
 
-		int k=rand.nextInt(cb.size());
+		
 		for (int i=1;i<cb.size();i++) { //This will click on the checkbox of given size in if loop.
 
 				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();	
-				if (i==2){
+				if (i==1){
 					break; 
 				}
 			}
 		//getting selected questions count in the question select page
 			String questions=driver.findElement(By.xpath(cap.questionsSelected())).getText().substring(19, 21).trim();
+			System.out.println(questions);
 			WebElement element = driver.findElement(By.xpath(cap.confirmSelection()));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			int selectedquestions=Integer.parseInt(questions);

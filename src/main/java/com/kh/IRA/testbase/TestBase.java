@@ -1,6 +1,7 @@
 package com.kh.IRA.testbase;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -49,13 +50,13 @@ public class TestBase {
 	public static void browsersettings() {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		//driver.manage().timeouts().setScriptTimeout(45, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().setScriptTimeout(45, TimeUnit.SECONDS);
 	}
 
 	public static void destroy() {
 		driver.close();
-		driver.quit();
+		//driver.quit();
 	}
 
 	public static void waitUntilVisibilityOfElement(WebElement element)
@@ -107,6 +108,5 @@ public class TestBase {
 		String date=scrDateFormat.format(new Date());
 		return date;
 	}
-	
 	
 }

@@ -126,4 +126,7 @@ public class CreateAssessmentPage {
 	public  String questionsSelected() {
 		return cr.getProperty("questionsSelected");
 	}
+	public  String sender() {
+		return cr.getProperty("sender");
+	}
 }

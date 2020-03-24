@@ -29,7 +29,7 @@ public class TC1_Login_Ops extends HomepageHelp {
 	
 	@AfterSuite
 	public void end() {
-		System.out.println("After Suite done");
-		//destroy();
+		
+		destroy();
 	}
 }
