@@ -98,7 +98,7 @@ public class CreateAssessmentHelper extends TestBase{
 			selectAssessmentType(1);
 			selectNoOfAttempts();
 			selectPassPercentage(regular);
-			selectTimerAndSetTime(regular, 3);
+			selectTimerAndSetTime(regular, 2);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(regular);
 		}else if(type.equalsIgnoreCase("Free")) {
