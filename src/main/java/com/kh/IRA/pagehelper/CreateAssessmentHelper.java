@@ -64,7 +64,6 @@ public class CreateAssessmentHelper extends TestBase{
 		if(type.equalsIgnoreCase("Mock")) {
 			String mock="CreateMock";
 			fillData(mock);
-			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
 			selectAssessmentType(3);
 			selectlogo();
 			selectNoOfAttempts();
@@ -76,7 +75,6 @@ public class CreateAssessmentHelper extends TestBase{
 		}else if(type.equalsIgnoreCase("Group")) {
 			String group="CreateGroup";
 			fillData(group);
-			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
 			selectAssessmentType(2);
 			selectlogo();
 			driver.findElement(By.xpath(cap.sender())).sendKeys("Automation Group Email");
@@ -90,7 +88,6 @@ public class CreateAssessmentHelper extends TestBase{
 		}else if (type.equalsIgnoreCase("Recall")) {
 			String recall="CreateRecall";
 			fillData(recall);
-			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
 			selectAssessmentType(4);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(recall);
@@ -98,7 +95,6 @@ public class CreateAssessmentHelper extends TestBase{
 		}else if(type.equalsIgnoreCase("Regular")) {
 			String regular="CreateRegular";
 			fillData(regular);
-			//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
 			selectAssessmentType(1);
 			selectNoOfAttempts();
 			selectPassPercentage(regular);
@@ -108,7 +104,6 @@ public class CreateAssessmentHelper extends TestBase{
 		}else if(type.equalsIgnoreCase("Free")) {
 			String free="Create Free";
 			fillData(free);
-			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
 			selectAssessmentType(5);
 			selectNoOfAttempts();
 			selectPassPercentage(free);
