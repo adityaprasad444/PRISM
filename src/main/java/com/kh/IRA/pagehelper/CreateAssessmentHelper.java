@@ -31,7 +31,7 @@ public class CreateAssessmentHelper extends TestBase{
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			
+
 			e.printStackTrace();
 		}
 		WebElement create= driver.findElement(By.xpath(cap.createAssessment()));
@@ -58,33 +58,31 @@ public class CreateAssessmentHelper extends TestBase{
 		des.get(1).sendKeys(data.get("Instructions"));
 	}
 
-	//0-Regular, 1- Group, 2-Mock & 3- Recall_Quiz
+	//1-Regular, 2- Group, 3-Mock , 4- Recall_Quiz & 5-Free Assessment
 	public void fillAssessmentDetails(String type) {
-		
+
 		if(type.equalsIgnoreCase("Mock")) {
 			String mock="CreateMock";
 			fillData(mock);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			selectAssessmentType(2);
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
+			selectAssessmentType(3);
 			selectlogo();
 			selectNoOfAttempts();
 			selectPassPercentage(mock);
-			selectTimerAndSetTime(mock);
+			selectTimerAndSetTime(mock, 1);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(mock);
-			
+
 		}else if(type.equalsIgnoreCase("Group")) {
 			String group="CreateGroup";
 			fillData(group);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			selectAssessmentType(1);
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
+			selectAssessmentType(2);
 			selectlogo();
 			driver.findElement(By.xpath(cap.sender())).sendKeys("Automation Group Email");
 			selectNoOfAttempts();
 			selectPassPercentage(group);
-			selectTimerAndSetTime(group);
+			selectTimerAndSetTime(group, 1);
 			selectTimeZone(group);
 			selectTime(group);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
@@ -92,30 +90,44 @@ public class CreateAssessmentHelper extends TestBase{
 		}else if (type.equalsIgnoreCase("Recall")) {
 			String recall="CreateRecall";
 			fillData(recall);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			selectAssessmentType(3);
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
+			selectAssessmentType(4);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(recall);
-			
+
 		}else if(type.equalsIgnoreCase("Regular")) {
 			String regular="CreateRegular";
 			fillData(regular);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			selectAssessmentType(0);
+			//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
+			selectAssessmentType(1);
 			selectNoOfAttempts();
 			selectPassPercentage(regular);
-			selectTimerAndSetTime(regular);
+			selectTimerAndSetTime(regular, 3);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(regular);
+		}else if(type.equalsIgnoreCase("Free")) {
+			String free="Create Free";
+			fillData(free);
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(cap.assessmentType())));
+			selectAssessmentType(5);
+			selectNoOfAttempts();
+			selectPassPercentage(free);
+			selectTimerAndSetTime(free, 1);
+			driver.findElement(By.xpath(cap.saveAndNext())).click();
+			selectQuestions(free);
 		}
+
 	}
 
-	//Selecting Assesssment Type based on the Integer Value passed 0-Regular, 1- Group, 2-Mock & 3- Recall_Quiz
+	//Selecting Assessment Type based on the Integer Value passed 1-Regular, 2- Group, 3-Mock , 4- Recall_Quiz & 5-Free Assessment
 	public void selectAssessmentType(int i) {
-		List <WebElement> assessmentType=driver.findElements(By.xpath(cap.assessmentType()));
-		assessmentType.get(i).click();
+		driver.findElement(By.xpath(cap.assessmentType())).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		driver.findElement(By.xpath(cap.ddl1()+i+cap.c2())).click();
 	}
 
 	//Selecting number of Attempts from Dropdown list
@@ -132,13 +144,20 @@ public class CreateAssessmentHelper extends TestBase{
 		driver.findElement(By.xpath(cap.passPercentage())).sendKeys(data.get("PassPercentage"));
 	}
 
-	//selectig assessment level timer and sending time from excel
-	public void selectTimerAndSetTime(String testName) {
+	//selecting timer and sending time from excel 1-Assessment Level, 2-Question Level & 3-Non timed.
+	public void selectTimerAndSetTime(String testName,int i) {
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
-		driver.findElement(By.xpath(cap.assessmentTimer())).isSelected();
 		driver.findElement(By.xpath(cap.assessmentTimer())).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		driver.findElement(By.xpath(cap.ddl1()+i+cap.c2())).click();
+		if (i!=3) {
 		driver.findElement(By.xpath(cap.assessmentTime())).sendKeys(data.get("Time"));
-	}
+		}
+		}
 
 	//selecting timezone using Attempt list locator for ddl list
 	public void selectTimeZone(String testName) {
@@ -198,7 +217,7 @@ public class CreateAssessmentHelper extends TestBase{
 	}
 
 	public void selectQuestions(String testName) {
-		
+
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
 
 		driver.findElement(By.xpath(cap.selectQuestion())).click();
@@ -210,23 +229,23 @@ public class CreateAssessmentHelper extends TestBase{
 
 		//while loop start
 		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
-		List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
+			List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
 
-		
-		for (int i=1;i<cb.size();i++) { //This will click on the checkbox of given size in if loop.
+
+			for (int i=1;i<cb.size();i++) { //This will click on the checkbox of given size in if loop.
 
 				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();	
 				if (i==1){
 					break; 
 				}
 			}
-		//getting selected questions count in the question select page
+			//getting selected questions count in the question select page
 			String questions=driver.findElement(By.xpath(cap.questionsSelected())).getText().substring(19, 21).trim();
 			System.out.println(questions);
 			WebElement element = driver.findElement(By.xpath(cap.confirmSelection()));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			int selectedquestions=Integer.parseInt(questions);
-		
+
 			if(selectedquestions==Integer.parseInt(data.get("Number of Questions"))) {
 				break;
 			}else { 

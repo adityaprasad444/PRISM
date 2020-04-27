@@ -23,12 +23,6 @@ public class DashboardHelper extends TestBase {
 		List<WebElement> Dashlinks= dash.findElements(By.tagName("a"));
 		for (int i=0;i<Dashlinks.size();i++) {
 			String Text=Dashlinks.get(i).getText();
-			try {
-				highlightElement(driver, driver.findElement(By.linkText(Text)));
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			driver.findElement(By.linkText(Text)).click();
 			String urlappend=Dashlinks.get(i).getAttribute("href");
 			asrt.assertEquals(driver.getCurrentUrl(), urlappend);
@@ -36,14 +30,6 @@ public class DashboardHelper extends TestBase {
 		}}
 
 	public static void logout() {
-		try {
-			
-			highlightElement(driver, driver.findElement(By.xpath(dp.profilecircle())));
-					
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
 		driver.findElement(By.xpath(dp.profilecircle())).click();
 		List <WebElement> menu=driver.findElements(By.xpath(dp.profileitems()));
 		waitUntilVisibilityOfElement(menu.get(0));

@@ -64,21 +64,12 @@ public class TestBase {
 		WebDriverWait wait=new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
-	
-	
-	public static void highlightElement(WebDriver driver, WebElement element) throws InterruptedException {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].style.border='4px solid yellow'", element);
-		Thread.sleep(1000);
-		js.executeScript("arguments[0].style.border=''", element);
-	}
 
 	public static String readSnackbar() {
 		WebDriverWait wait=new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath("//div[contains(@class, 'MuiSnackbar-root')]"))));
 		WebElement snackbar=driver.findElement(By.xpath("//div[contains(@class, 'MuiSnackbar-root')]"));
-		String message=snackbar.getText();
-		return message;
+		return snackbar.getText();
 	}
 	
 	public static String randomString(int n) {
@@ -105,8 +96,7 @@ public class TestBase {
 	public static String getDateAndTime()
 	{
 		SimpleDateFormat scrDateFormat=new SimpleDateFormat("ddMMyyyyHHmmss");
-		String date=scrDateFormat.format(new Date());
-		return date;
+		return scrDateFormat.format(new Date());
 	}
-	
+
 }

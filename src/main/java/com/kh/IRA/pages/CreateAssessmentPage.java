@@ -129,4 +129,7 @@ public class CreateAssessmentPage {
 	public  String sender() {
 		return cr.getProperty("sender");
 	}
+	public  String ddl1() {
+		return cr.getProperty("ddl1");
+	}
 }

@@ -21,11 +21,6 @@ public GeneralPage gp;
 	
 	public void questionBank() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
-		try {
-			highlightElement(driver, cdash.findElement(By.xpath(cdp.cmsQuestionBank())));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		cdash.findElement(By.xpath(cdp.cmsQuestionBank())).click();
 		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/assessments/question-bank", "URL Not Matched");
 		asrt.assertAll();
@@ -33,12 +28,6 @@ public GeneralPage gp;
 	
 	public void course() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
-		try {
-			highlightElement(driver, cdash.findElement(By.xpath(cdp.cmsCourses())));
-		} catch (InterruptedException e) {
-		
-			e.printStackTrace();
-		}
 		cdash.findElement(By.xpath(cdp.cmsCourses())).click();
 		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/publish/courses", "URL Not Matched");
 		asrt.assertAll();
@@ -46,11 +35,6 @@ public GeneralPage gp;
 	
 	public void assessment() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
-		try {
-			highlightElement(driver, cdash.findElement(By.xpath(cdp.cmsAssessments())));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		cdash.findElement(By.xpath(cdp.cmsAssessments())).click();
 		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"/assessments/list", "URL Not Matched");
 		asrt.assertAll();
@@ -58,12 +42,6 @@ public GeneralPage gp;
 	
 	public void skillMap() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
-		try {
-			highlightElement(driver, cdash.findElement(By.xpath(cdp.skillmap())));
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
 		cdash.findElement(By.xpath(cdp.skillmap())).click();
 		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/publish/skill-map", "URL Not Matched");
 		asrt.assertAll();

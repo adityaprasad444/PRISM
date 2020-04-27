@@ -13,13 +13,13 @@ public class TC2_Assessment extends CreateAssessmentHelper{
 
 	}
 
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void createRegular() {
 		gotoCreatepage();
 		fillAssessmentDetails("regular");
 	}
 
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void createGroup() {
 		gotoCreatepage();
 		fillAssessmentDetails("group");

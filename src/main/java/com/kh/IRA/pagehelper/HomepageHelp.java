@@ -1,10 +1,7 @@
 package com.kh.IRA.pagehelper;
 
 import java.util.HashMap;
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
 import com.kh.IRA.pages.CMSdashboardPage;
@@ -35,7 +32,7 @@ public class HomepageHelp extends TestBase {
 
 	public void url() {
 		driver.get(gp.geturl());
-		asrt.assertEquals(driver.getTitle(),"IRA","TitleNot Matched");
+		asrt.assertEquals(driver.getTitle(),"Prism - AI driven, full stack digital learning experience platform","TitleNot Matched");
 		asrt.assertAll();
 	}
 
