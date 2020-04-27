@@ -139,7 +139,7 @@ public class CreateAssessmentHelper extends TestBase{
 		driver.findElement(By.xpath(cap.passPercentage())).sendKeys(data.get("PassPercentage"));
 	}
 
-	//selecting timer and sending time from excel 1-Assessment Level, 2-Question Level & 3-Non timed.
+	//selecting timer and sending time from excel 1-Assessment Level, 2-Non timed.
 	public void selectTimerAndSetTime(String testName,int i) {
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
 		driver.findElement(By.xpath(cap.assessmentTimer())).click();
@@ -149,7 +149,7 @@ public class CreateAssessmentHelper extends TestBase{
 			e.printStackTrace();
 		}
 		driver.findElement(By.xpath(cap.ddl1()+i+cap.c2())).click();
-		if (i!=3) {
+		if (i==1) {
 		driver.findElement(By.xpath(cap.assessmentTime())).sendKeys(data.get("Time"));
 		}
 		}
