@@ -171,12 +171,15 @@ public class CreateAssessmentHelper extends TestBase{
 
 	//Adding Start & End Time for the assessment
 	public void selectTime(String testName) {
+		
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
+		String start=dateTimeWithAddedMinutes(data.get("TimeZone"), 30);
+		String end=dateTimeWithAddedMinutes(data.get("TimeZone"), 30+Integer.parseInt(data.get("Time")));
 		List <WebElement> times=driver.findElements(By.xpath(cap.timeFields()));
 		WebElement startTime=times.get(0);
 		WebElement endTime=times.get(1);
-		startTime.sendKeys(data.get("StartTime"));
-		endTime.sendKeys(data.get("EndTime"));
+		startTime.sendKeys(start);
+		endTime.sendKeys(end);
 	}
 
 	//selecting logo

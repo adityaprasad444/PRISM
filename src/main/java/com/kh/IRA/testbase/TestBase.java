@@ -1,9 +1,15 @@
 package com.kh.IRA.testbase;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -99,4 +105,13 @@ public class TestBase {
 		return scrDateFormat.format(new Date());
 	}
 
+	public static String dateTimeWithAddedMinutes(String Timezone, int minutes) {
+		
+		Date date = new Date();
+		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm");
+		df.setTimeZone(TimeZone.getTimeZone(Timezone));
+		LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(minutes, ChronoUnit.MINUTES));
+		Date tmfn = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
+		return df.format(tmfn);
+	}
 }
