@@ -236,7 +236,7 @@ public class CreateAssessmentHelper extends TestBase{
 			}
 			//getting selected questions count in the question select page
 			String questions=driver.findElement(By.xpath(cap.questionsSelected())).getText().substring(19, 21).trim();
-			System.out.println(questions);
+			System.out.println("Selected Questions: "+questions);
 			WebElement element = driver.findElement(By.xpath(cap.confirmSelection()));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			int selectedquestions=Integer.parseInt(questions);

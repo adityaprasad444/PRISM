@@ -32,4 +32,11 @@ public class TC2_Assessment extends CreateAssessmentHelper{
 		fillAssessmentDetails("recall");
 
 	}
+	
+	@Test(enabled=false)
+	public void createFree() {
+		gotoCreatepage();
+		fillAssessmentDetails("free");
+
+	}
 }
