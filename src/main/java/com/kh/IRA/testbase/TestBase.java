@@ -6,14 +6,11 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -62,7 +59,7 @@ public class TestBase {
 
 	public static void destroy() {
 		driver.close();
-		//driver.quit();
+		driver.quit();
 	}
 
 	public static void waitUntilVisibilityOfElement(WebElement element)
@@ -107,7 +104,6 @@ public class TestBase {
 
 	public static String dateTimeWithAddedMinutes(String Timezone, int minutes) {
 		
-		Date date = new Date();
 		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm");
 		df.setTimeZone(TimeZone.getTimeZone(Timezone));
 		LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(minutes, ChronoUnit.MINUTES));
