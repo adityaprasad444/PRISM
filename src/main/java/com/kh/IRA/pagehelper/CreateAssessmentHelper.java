@@ -226,7 +226,7 @@ public class CreateAssessmentHelper extends TestBase{
 		driver.findElement(By.xpath(cap.pagesize50())).click();
 
 		//while loop start
-		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
+			while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
 			List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
 
 

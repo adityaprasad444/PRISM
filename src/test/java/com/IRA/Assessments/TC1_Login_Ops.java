@@ -30,6 +30,6 @@ public class TC1_Login_Ops extends HomepageHelp {
 	@AfterSuite
 	public void end() {
 		
-		//destroy();
+		destroy();
 	}
 }

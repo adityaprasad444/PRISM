@@ -16,7 +16,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
@@ -31,19 +30,15 @@ public class TestBase {
 	public static WebDriver initialization(String browserName){
 
 
-		if(browserName.equals("chrome")){
+		if(browserName.equalsIgnoreCase("chrome")){
 			WebDriverManager.chromedriver().setup();	
 			driver = new ChromeDriver();
 		}
-		else if(browserName.equals("ff")){
+		else if(browserName.equalsIgnoreCase("ff")){
 			WebDriverManager.firefoxdriver().setup();	
 			driver = new FirefoxDriver(); 
 		}
-		else if(browserName.equals("ie")){
-			WebDriverManager.iedriver().setup();	
-			driver = new InternetExplorerDriver(); 
-		}
-		else if(browserName.equals("edge")){
+		else if(browserName.equalsIgnoreCase("edge")){
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver(); 
 		}
