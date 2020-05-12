@@ -32,8 +32,8 @@ public class HomepageHelp extends TestBase {
 
 	public void url() {
 		driver.get(gp.geturl());
-		asrt.assertEquals(driver.getTitle(),"Prism - AI driven, full stack digital learning experience platform","TitleNot Matched");
-		asrt.assertAll();
+		//asrt.assertEquals(driver.getTitle(),"Prism - AI driven, full stack digital learning experience platform","TitleNot Matched");
+		//asrt.assertAll();
 	}
 
 	public void loginFromProperty() {

@@ -58,7 +58,7 @@ public class CreateAssessmentHelper extends TestBase{
 		des.get(1).sendKeys(data.get("Instructions"));
 	}
 
-	//1-Regular, 2- Group, 3-Mock , 4- Recall_Quiz & 5-Free Assessment
+	//1-Regular, 2- Group, 3-Mock , 4- Recall-Quiz & 5-Free Assessment
 	public void fillAssessmentDetails(String type) {
 
 		if(type.equalsIgnoreCase("Mock")) {
@@ -77,6 +77,7 @@ public class CreateAssessmentHelper extends TestBase{
 			fillData(group);
 			selectAssessmentType(2);
 			selectlogo();
+			//From Name for email triger
 			driver.findElement(By.xpath(cap.sender())).sendKeys("Automation Group Email");
 			selectNoOfAttempts();
 			selectPassPercentage(group);
