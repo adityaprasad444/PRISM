@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
@@ -69,27 +70,27 @@ public class TestBase {
 		WebElement snackbar=driver.findElement(By.xpath("//div[contains(@class, 'MuiSnackbar-root')]"));
 		return snackbar.getText();
 	}
-	
+
 	public static String randomString(int n) {
-		
+
 		// chose a Character random from this String 
-        String random = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz"; 
-  
-        // create StringBuffer size of AlphaNumericString 
-        StringBuilder sb = new StringBuilder(n); 
-  
-        for (int i = 0; i < n; i++) { 
-  
-            // generate a random number between 
-            // 0 to AlphaNumericString variable length 
-            int index = (int)(random.length()* Math.random()); 
-  
-            // add Character one by one in end of sb 
-            sb.append(random.charAt(index)); 
-        } 
-  
-        return sb.toString(); 
-    } 
+		String random = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz"; 
+
+		// create StringBuffer size of AlphaNumericString 
+		StringBuilder sb = new StringBuilder(n); 
+
+		for (int i = 0; i < n; i++) { 
+
+			// generate a random number between 
+			// 0 to AlphaNumericString variable length 
+			int index = (int)(random.length()* Math.random()); 
+
+			// add Character one by one in end of sb 
+			sb.append(random.charAt(index)); 
+		} 
+
+		return sb.toString(); 
+	} 
 
 	public static String getDateAndTime()
 	{
@@ -98,11 +99,27 @@ public class TestBase {
 	}
 
 	public static String dateTimeWithAddedMinutes(String Timezone, int minutes) {
-		
+
 		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm");
 		df.setTimeZone(TimeZone.getTimeZone(Timezone));
 		LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(minutes, ChronoUnit.MINUTES));
 		Date tmfn = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
 		return df.format(tmfn);
 	}
+
+
+	public static void mailinatorHelp(String email,String subject) {
+
+		driver.findElement(By.xpath("//input[@id='addOverlay']")).sendKeys(email);
+		driver.findElement(By.xpath("//button[@id='go-to-public']")).click();
+		List<WebElement> mails=driver.findElements(By.xpath("//tr[@class='even pointer ng-scope']"));
+		driver.findElement(By.xpath("//a[@class='cc-btn cc-dismiss']")).click();
+		for (int i=1;i<=mails.size();i++) {
+			WebElement emailsubject=driver.findElement(By.xpath("//tr[@class='even pointer ng-scope']["+i+"]/td[4]/a"));
+			if (emailsubject.getText().equalsIgnoreCase(subject)){
+				emailsubject.click();
+			}		
+		}
+
+	}//mailinatorHelp end
 }
