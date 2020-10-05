@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="4" total="7" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Assessment Creation" duration-ms="243991" started-at="2020-10-05T21:26:51 IST" finished-at="2020-10-05T21:30:55 IST">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="243991" started-at="2020-10-05T21:26:51 IST" finished-at="2020-10-05T21:30:55 IST">
+      <class name="com.IRA.Assessments.TC2_Assessment">
+        <test-method status="PASS" signature="createFree()[pri:0, instance:com.IRA.Assessments.TC2_Assessment@69997e9d]" name="createFree" duration-ms="238360" started-at="2020-10-05T21:26:57 IST" finished-at="2020-10-05T21:30:55 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createFree -->
+      </class> <!-- com.IRA.Assessments.TC2_Assessment -->
+      <class name="com.IRA.Assessments.TC1_Login_Ops">
+        <test-method status="PASS" signature="begin()[pri:0, instance:com.IRA.Assessments.TC1_Login_Ops@446293d]" name="begin" is-config="true" duration-ms="6233" started-at="2020-10-05T21:26:45 IST" finished-at="2020-10-05T21:26:51 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- begin -->
+        <test-method status="PASS" signature="opsLogin()[pri:1, instance:com.IRA.Assessments.TC1_Login_Ops@446293d]" name="opsLogin" duration-ms="4017" started-at="2020-10-05T21:26:52 IST" finished-at="2020-10-05T21:26:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- opsLogin -->
+        <test-method status="PASS" signature="navigateToAssessmentlist()[pri:2, instance:com.IRA.Assessments.TC1_Login_Ops@446293d]" name="navigateToAssessmentlist" duration-ms="113" started-at="2020-10-05T21:26:56 IST" finished-at="2020-10-05T21:26:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToAssessmentlist -->
+      </class> <!-- com.IRA.Assessments.TC1_Login_Ops -->
+    </test> <!-- Test -->
+  </suite> <!-- Assessment Creation -->
+</testng-results>
