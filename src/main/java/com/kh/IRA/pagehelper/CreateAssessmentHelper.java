@@ -48,12 +48,6 @@ public class CreateAssessmentHelper extends TestBase{
 		String s1=data.get("Name");
 		String d1=getDateAndTime();
 		String s2=s1+d1;
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		WebElement name= driver.findElement(By.xpath(cap.assessmetName()));
 		waitUntilVisibilityOfElement(name);
 		name.sendKeys(s2);

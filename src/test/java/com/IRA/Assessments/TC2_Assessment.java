@@ -6,13 +6,13 @@ import com.kh.IRA.pagehelper.CreateAssessmentHelper;
 
 public class TC2_Assessment extends CreateAssessmentHelper{
 
-	@Test(enabled = false)
+	@Test(priority=1)
 	public void createMock() {
 		gotoCreatepage();
 		fillAssessmentDetails("Mock");
 	}
 
-	@Test(enabled=false)
+	@Test(priority=2)
 	public void createGroup() {
 		gotoCreatepage();
 		fillAssessmentDetails("group");
