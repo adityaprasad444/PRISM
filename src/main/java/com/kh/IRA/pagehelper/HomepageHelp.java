@@ -52,7 +52,7 @@ public class HomepageHelp extends TestBase {
 		driver.findElement(By.xpath(hp.getSubmit())).click();
 		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cdp.cmsCourses())));
 		String s=driver.getCurrentUrl();
-		asrt.assertEquals(s, gp.geturl()+"/publish/courses","Ops URL does not match");
+		asrt.assertEquals(s, gp.geturl()+"publish/courses","Ops URL does not match");
 		asrt.assertAll();
 	}
 }

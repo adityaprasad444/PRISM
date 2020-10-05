@@ -11,7 +11,7 @@ public class TC1_Login_Ops extends HomepageHelp {
 
 	CMSDashBoardHelper cdp=new CMSDashBoardHelper(); 
 	
-	@BeforeSuite
+	@BeforeSuite(alwaysRun = true)
 	public void begin() {
 		browser();
 	}
@@ -27,7 +27,7 @@ public class TC1_Login_Ops extends HomepageHelp {
 		cdp.assessment();
 	}
 	
-	@AfterSuite
+	@AfterSuite(alwaysRun = true)
 	public void end() {
 		
 		destroy();

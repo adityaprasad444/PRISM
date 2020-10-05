@@ -38,7 +38,7 @@ public class CreateAssessmentHelper extends TestBase{
 		waitUntilVisibilityOfElement(create);
 		create.click();
 		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cap.assessmetName())));
-		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"/assessments/create", "Create Page URL not matched");
+		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"assessments/create", "Create Page URL not matched");
 		asrt.assertAll();
 	}
 
@@ -60,7 +60,6 @@ public class CreateAssessmentHelper extends TestBase{
 
 	//1-Regular, 2- Group, 3-Mock , 4- Recall-Quiz & 5-Free Assessment
 	public void fillAssessmentDetails(String type) {
-
 		if(type.equalsIgnoreCase("Mock")) {
 			String mock="CreateMock";
 			fillData(mock);
@@ -71,7 +70,6 @@ public class CreateAssessmentHelper extends TestBase{
 			selectTimerAndSetTime(mock, 1);
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(mock);
-
 		}else if(type.equalsIgnoreCase("Group")) {
 			String group="CreateGroup";
 			fillData(group);
@@ -103,7 +101,7 @@ public class CreateAssessmentHelper extends TestBase{
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(regular);
 		}else if(type.equalsIgnoreCase("Free")) {
-			String free="Create Free";
+			String free="CreateFree";
 			fillData(free);
 			selectAssessmentType(5);
 			selectNoOfAttempts();

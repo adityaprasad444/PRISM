@@ -36,7 +36,7 @@ public GeneralPage gp;
 	public void assessment() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
 		cdash.findElement(By.xpath(cdp.cmsAssessments())).click();
-		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"/assessments/list", "URL Not Matched");
+		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"assessments/list", "URL Not Matched");
 		asrt.assertAll();
 	}
 	
