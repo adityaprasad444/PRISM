@@ -60,7 +60,7 @@ public class myScreenRecorder extends ScreenRecorder {
 				.getDefaultConfiguration();
 
 		screenRecorder = new myScreenRecorder(gc, captureSize,
-				new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_MP4),
+				new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI),
 				new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE,
 						CompressorNameKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE, DepthKey, 24, FrameRateKey,
 						Rational.valueOf(15), QualityKey, 1.0f, KeyFrameIntervalKey, 15 * 60),
