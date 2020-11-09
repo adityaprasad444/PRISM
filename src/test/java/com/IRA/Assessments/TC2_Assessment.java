@@ -18,19 +18,19 @@ public class TC2_Assessment extends CreateAssessmentHelper{
 		fillAssessmentDetails("group");
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3) //(enabled = false) 
 	public void createRegular() {
 		gotoCreatepage();
 		fillAssessmentDetails("regular");
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4) //(enabled = false)
 	public void createRecall() {
 		gotoCreatepage();
 		fillAssessmentDetails("recall");
 	}
 	
-	@Test(priority=5)
+	@Test(priority=5) //(enabled = false)
 	public void createFree() {
 		gotoCreatepage();
 		fillAssessmentDetails("free");
