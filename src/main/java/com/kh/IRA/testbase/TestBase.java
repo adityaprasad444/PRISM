@@ -28,24 +28,40 @@ public class TestBase {
 	public static WebDriver driver = null;
 	public SoftAssert asrt;
 
+	/*
+	 * public static WebDriver initialization(String browserName){
+	 * 
+	 * if(browserName.equalsIgnoreCase("chrome")){
+	 * WebDriverManager.chromedriver().setup();
+	 * driver = new ChromeDriver(); } 
+	 * else if(browserName.equalsIgnoreCase("ff")){
+	 * WebDriverManager.firefoxdriver().setup();
+	 * driver = new FirefoxDriver(); }
+	 * else if(browserName.equalsIgnoreCase("edge")){
+	 * WebDriverManager.edgedriver().setup();
+	 * driver = new EdgeDriver(); } 
+	 * return driver;
+	 * 
+	 * }
+	 */	
+	
 	public static WebDriver initialization(String browserName){
-
-
+		
 		if(browserName.equalsIgnoreCase("chrome")){
-			WebDriverManager.chromedriver().setup();	
-			driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver","./src/main/resources/com/kh/IRA/Drivers/chromedriver.exe");
+			driver=new ChromeDriver();
 		}
-		else if(browserName.equalsIgnoreCase("ff")){
-			WebDriverManager.firefoxdriver().setup();	
-			driver = new FirefoxDriver(); 
+		else if(browserName.equalsIgnoreCase("FF")) {
+			System.setProperty("webdriver.gecko.driver", "./src/main/resources/com/kh/IRA/Drivers/geckodriver.exe");
+			driver=new FirefoxDriver();
 		}
-		else if(browserName.equalsIgnoreCase("edge")){
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver(); 
+		else if(browserName.equalsIgnoreCase("edge")) {
+			System.setProperty("webdriver.edge.driver", "./src/main/resources/com/kh/IRA/Drivers/msedgedriver.exe");
+			driver=new EdgeDriver();
 		}
 		return driver;
-
 	}
+	
 	public static void browsersettings() {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
