@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Assessment_Creation">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Assessment_Creation" title="com.IRA.Assessments.TC2_Assessment" hash-for-method="createFree">createFree</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Assessment_Creation" title="com.IRA.Assessments.TC2_Assessment" hash-for-method="createRegular">createRegular</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -132,21 +132,6 @@
           <div class="suite-Assessment_Creation-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.IRA.Assessments.TC2_Assessment</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="createFree">
-                  </a> <!-- createFree -->
-                  <span class="method-name">createFree</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Assessment_Creation-class-passed -->
-          <div class="suite-Assessment_Creation-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
               <span class="class-name">com.IRA.Assessments.TC1_Login_Ops</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -162,6 +147,21 @@
                   <a name="opsLogin">
                   </a> <!-- opsLogin -->
                   <span class="method-name">opsLogin</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Assessment_Creation-class-passed -->
+          <div class="suite-Assessment_Creation-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.IRA.Assessments.TC2_Assessment</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createRegular">
+                  </a> <!-- createRegular -->
+                  <span class="method-name">createRegular</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -225,22 +225,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createFree')
+data.setCell(0, 1, 'createRegular')
 data.setCell(0, 2, 'com.IRA.Assessments.TC2_Assessment')
-data.setCell(0, 3, 238360);
+data.setCell(0, 3, 22684);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'opsLogin')
 data.setCell(1, 2, 'com.IRA.Assessments.TC1_Login_Ops')
-data.setCell(1, 3, 4017);
+data.setCell(1, 3, 13490);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'navigateToAssessmentlist')
 data.setCell(2, 2, 'com.IRA.Assessments.TC1_Login_Ops')
-data.setCell(2, 3, 113);
+data.setCell(2, 3, 100);
 window.suiteTableData['Assessment_Creation']= { tableData: data, tableDiv: 'times-div-Assessment_Creation'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 minutes</span>
+              <span class="suite-total-time">Total running time: 36 seconds</span>
               <div id="times-div-Assessment_Creation">
               </div> <!-- times-div-Assessment_Creation -->
             </div> <!-- times-div -->
@@ -265,9 +265,9 @@ return data;
                 <br/>
                 <span class="ignored-method-name">createRecall</span>
                 <br/>
-                <span class="ignored-method-name">createMock</span>
+                <span class="ignored-method-name">createFree</span>
                 <br/>
-                <span class="ignored-method-name">createRegular</span>
+                <span class="ignored-method-name">createMock</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -286,19 +286,26 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="test-method">
                 <span class="method-name">opsLogin</span>
-                <span class="method-start">6500 ms</span>
+                <span class="method-start">6264 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">navigateToAssessmentlist</span>
-                <span class="method-start">10890 ms</span>
+                <span class="method-start">20140 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.IRA.Assessments.TC2_Assessment</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">createFree</span>
-                <span class="method-start">11337 ms</span>
+                <span class="method-name">createRegular</span>
+                <span class="method-start">20566 ms</span>
               </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.IRA.Assessments.TC1_Login_Ops</div> <!-- chronological-class-name -->
+              <div class="configuration-suite after">
+                <span class="method-name">end</span>
+                <span class="method-start">60731 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
