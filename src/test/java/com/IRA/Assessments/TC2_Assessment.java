@@ -6,31 +6,31 @@ import com.kh.IRA.pagehelper.CreateAssessmentHelper;
 
 public class TC2_Assessment extends CreateAssessmentHelper{
 
-	@Test(priority=1)
+	@Test(enabled = false) //(priority=1)
 	public void createMock() {
 		gotoCreatepage();
 		fillAssessmentDetails("Mock");
 	}
 
-	@Test(priority=2)
+	@Test(enabled = false)//(priority=2)
 	public void createGroup() {
 		gotoCreatepage();
 		fillAssessmentDetails("group");
 	}
 	
-	@Test(priority=3) //(enabled = false) 
+	@Test(enabled = true) 
 	public void createRegular() {
 		gotoCreatepage();
 		fillAssessmentDetails("regular");
 	}
 	
-	@Test(priority=4) //(enabled = false)
+	@Test(enabled = false)//(priority=4)
 	public void createRecall() {
 		gotoCreatepage();
 		fillAssessmentDetails("recall");
 	}
 	
-	@Test(priority=5) //(enabled = false)
+	@Test(enabled = false)//(priority=5)
 	public void createFree() {
 		gotoCreatepage();
 		fillAssessmentDetails("free");

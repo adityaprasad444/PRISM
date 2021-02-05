@@ -21,6 +21,7 @@ public class CreateAssessmentHelper extends TestBase{
 	public CreateAssessmentPage cap;
 	public GeneralPage gp;
 	public Random rand = new Random();
+	
 	public CreateAssessmentHelper() {
 		cap=new CreateAssessmentPage();
 		gp=new GeneralPage();
@@ -232,7 +233,7 @@ public class CreateAssessmentHelper extends TestBase{
 			for (int i=1;i<cb.size();i++) { //This will click on the checkbox of given size in if loop.
 
 				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();	
-				if (i==1){
+				if (i==5){
 					break; 
 				}
 			}

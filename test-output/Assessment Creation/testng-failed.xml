@@ -7,11 +7,13 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.IRA.Assessments.TC2_Assessment">
+      <class name="com.IRA.Assessments.TC1_Login_Ops">
         <methods>
-          <include name="createFree"/>
+          <include name="begin"/>
+          <include name="opsLogin"/>
+          <include name="end"/>
         </methods>
-      </class> <!-- com.IRA.Assessments.TC2_Assessment -->
+      </class> <!-- com.IRA.Assessments.TC1_Login_Ops -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Assessment Creation] -->
