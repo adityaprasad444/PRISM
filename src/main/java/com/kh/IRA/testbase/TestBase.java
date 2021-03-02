@@ -28,24 +28,24 @@ public class TestBase {
 	public static WebDriver driver = null;
 	public SoftAssert asrt;
 
-	/*
-	 * public static WebDriver initialization(String browserName){
-	 * 
-	 * if(browserName.equalsIgnoreCase("chrome")){
-	 * WebDriverManager.chromedriver().setup();
-	 * driver = new ChromeDriver(); } 
-	 * else if(browserName.equalsIgnoreCase("ff")){
-	 * WebDriverManager.firefoxdriver().setup();
-	 * driver = new FirefoxDriver(); }
-	 * else if(browserName.equalsIgnoreCase("edge")){
-	 * WebDriverManager.edgedriver().setup();
-	 * driver = new EdgeDriver(); } 
-	 * return driver;
-	 * 
-	 * }
-	 */	
 	
-	public static WebDriver initialization(String browserName){
+	  public static WebDriver initialization(String browserName){
+	  
+	  if(browserName.equalsIgnoreCase("chrome")){
+	  WebDriverManager.chromedriver().setup();
+	  driver = new ChromeDriver(); } 
+	  else if(browserName.equalsIgnoreCase("ff")){
+	  WebDriverManager.firefoxdriver().setup();
+	  driver = new FirefoxDriver(); }
+	  else if(browserName.equalsIgnoreCase("edge")){
+	  WebDriverManager.edgedriver().setup();
+	  driver = new EdgeDriver(); } 
+	  return driver;
+	  
+	  }
+	 	
+	
+	/*public static WebDriver initialization(String browserName){
 		
 		if(browserName.equalsIgnoreCase("chrome")){
 			System.setProperty("webdriver.chrome.driver","./src/main/resources/com/kh/IRA/Drivers/chromedriver.exe");
@@ -61,7 +61,7 @@ public class TestBase {
 		}
 		return driver;
 	}
-	
+	*/
 	public static void browsersettings() {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();

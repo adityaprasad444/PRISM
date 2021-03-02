@@ -2,30 +2,30 @@
 <testng-results skipped="0" failed="0" ignored="4" total="7" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Assessment Creation" duration-ms="54432" started-at="2020-12-22T13:21:19 IST" finished-at="2020-12-22T13:22:13 IST">
+  <suite name="Assessment Creation" duration-ms="34877" started-at="2021-02-18T22:00:58 IST" finished-at="2021-02-18T22:01:33 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="54432" started-at="2020-12-22T13:21:19 IST" finished-at="2020-12-22T13:22:13 IST">
+    <test name="Test" duration-ms="34877" started-at="2021-02-18T22:00:58 IST" finished-at="2021-02-18T22:01:33 IST">
       <class name="com.IRA.Assessments.TC2_Assessment">
-        <test-method status="PASS" signature="createRegular()[pri:0, instance:com.IRA.Assessments.TC2_Assessment@276438c9]" name="createRegular" duration-ms="22684" started-at="2020-12-22T13:21:33 IST" finished-at="2020-12-22T13:21:56 IST">
+        <test-method status="PASS" signature="createRegular()[pri:0, instance:com.IRA.Assessments.TC2_Assessment@276438c9]" name="createRegular" duration-ms="21149" started-at="2021-02-18T22:01:12 IST" finished-at="2021-02-18T22:01:33 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createRegular -->
       </class> <!-- com.IRA.Assessments.TC2_Assessment -->
       <class name="com.IRA.Assessments.TC1_Login_Ops">
-        <test-method status="PASS" signature="begin()[pri:0, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="begin" is-config="true" duration-ms="6019" started-at="2020-12-22T13:21:13 IST" finished-at="2020-12-22T13:21:19 IST">
+        <test-method status="PASS" signature="begin()[pri:0, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="begin" is-config="true" duration-ms="4770" started-at="2021-02-18T22:00:54 IST" finished-at="2021-02-18T22:00:58 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- begin -->
-        <test-method status="PASS" signature="opsLogin()[pri:1, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="opsLogin" duration-ms="13490" started-at="2020-12-22T13:21:19 IST" finished-at="2020-12-22T13:21:32 IST">
+        <test-method status="PASS" signature="opsLogin()[pri:1, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="opsLogin" duration-ms="4092" started-at="2021-02-18T22:00:59 IST" finished-at="2021-02-18T22:01:03 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- opsLogin -->
-        <test-method status="PASS" signature="navigateToAssessmentlist()[pri:2, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="navigateToAssessmentlist" duration-ms="100" started-at="2020-12-22T13:21:33 IST" finished-at="2020-12-22T13:21:33 IST">
+        <test-method status="PASS" signature="navigateToAssessmentlist()[pri:2, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="navigateToAssessmentlist" duration-ms="8080" started-at="2021-02-18T22:01:03 IST" finished-at="2021-02-18T22:01:11 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToAssessmentlist -->
-        <test-method status="PASS" signature="end()[pri:0, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="end" is-config="true" duration-ms="642" started-at="2020-12-22T13:22:13 IST" finished-at="2020-12-22T13:22:14 IST">
+        <test-method status="PASS" signature="end()[pri:0, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="end" is-config="true" duration-ms="4751" started-at="2021-02-18T22:01:34 IST" finished-at="2021-02-18T22:01:38 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->

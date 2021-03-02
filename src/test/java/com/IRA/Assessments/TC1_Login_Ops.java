@@ -19,7 +19,8 @@ public class TC1_Login_Ops extends HomepageHelp {
 	@Test(priority=1)
 	public void opsLogin() {
 		url();
-		loginCMS("TestCredentials","CALogin");
+		loginFromProperty();
+		//loginCMS("TestCredentials","CALogin");
 	}
 	
 	@Test(priority=2)
@@ -29,7 +30,6 @@ public class TC1_Login_Ops extends HomepageHelp {
 	
 	@AfterSuite(alwaysRun = true)
 	public void end() {
-		
 		destroy();
 	}
 }

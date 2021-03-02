@@ -10,10 +10,16 @@
       <class name="com.IRA.Assessments.TC1_Login_Ops">
         <methods>
           <include name="begin"/>
+          <include name="navigateToAssessmentlist"/>
           <include name="opsLogin"/>
           <include name="end"/>
         </methods>
       </class> <!-- com.IRA.Assessments.TC1_Login_Ops -->
+      <class name="com.IRA.Assessments.TC2_Assessment">
+        <methods>
+          <include name="createRegular"/>
+        </methods>
+      </class> <!-- com.IRA.Assessments.TC2_Assessment -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Assessment Creation] -->
