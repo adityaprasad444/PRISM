@@ -1,5 +1,6 @@
 package com.kh.IRA.pagehelper;
 
+import java.net.MalformedURLException;
 import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
@@ -26,7 +27,13 @@ public class HomepageHelp extends TestBase {
 
 	public void browser() {
 
-		driver= initialization(gp.getbrowser());
+		try {
+			driver=initializtion();
+		} catch (MalformedURLException e) {
+			
+			e.printStackTrace();
+		}
+		//driver= initialization(gp.getbrowser());
 		browsersettings();
 	}
 

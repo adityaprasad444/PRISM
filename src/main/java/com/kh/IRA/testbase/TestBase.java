@@ -1,5 +1,7 @@
 package com.kh.IRA.testbase;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -17,6 +19,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
@@ -43,8 +47,24 @@ public class TestBase {
 	  return driver;
 	  
 	  }
-	 	
-	
+	 
+	  public static WebDriver initializtion() throws MalformedURLException 
+	  {
+		  final String USERNAME = "knowledgehutsolu1";
+		  final String AUTOMATE_KEY = "GFoqqorpsQExyyUYs2HX";
+		  final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+				DesiredCapabilities caps = new DesiredCapabilities();
+
+				caps.setCapability("os", "Windows");
+				caps.setCapability("os_version", "10");
+				caps.setCapability("browser", "Chrome");
+				caps.setCapability("browser_version", "89");
+				caps.setCapability("name", "Create Assessments");
+				caps.setCapability("browserstack.networkLogs", "true");
+				WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+				return driver;
+	  }
+	  
 	/*public static WebDriver initialization(String browserName){
 		
 		if(browserName.equalsIgnoreCase("chrome")){
