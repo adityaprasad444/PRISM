@@ -59,7 +59,7 @@ public class ExcelReader {
 			System.out.println(e.getMessage());
 			
 		}
-		
+		System.out.println(testDataMap);
 		return testDataMap;
 		
 		
