@@ -48,22 +48,20 @@ public class TestBase {
 	  
 	  }
 	 
-	  public static WebDriver initializtion() throws MalformedURLException 
-	  {
-		  final String USERNAME = "knowledgehutsolu1";
-		  final String AUTOMATE_KEY = "GFoqqorpsQExyyUYs2HX";
-		  final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
-				DesiredCapabilities caps = new DesiredCapabilities();
-
-				caps.setCapability("os", "Windows");
-				caps.setCapability("os_version", "10");
-				caps.setCapability("browser", "Chrome");
-				caps.setCapability("browser_version", "89");
-				caps.setCapability("name", "Create Assessments");
-				caps.setCapability("browserstack.networkLogs", "true");
-				WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-				return driver;
-	  }
+	/*
+	 * public static WebDriver initializtion() throws MalformedURLException { final
+	 * String USERNAME = "knowledgehutsolu1"; final String AUTOMATE_KEY =
+	 * "GFoqqorpsQExyyUYs2HX"; final String URL = "https://" + USERNAME + ":" +
+	 * AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub"; DesiredCapabilities caps
+	 * = new DesiredCapabilities();
+	 * 
+	 * caps.setCapability("os", "Windows"); caps.setCapability("os_version", "10");
+	 * caps.setCapability("browser", "Chrome");
+	 * caps.setCapability("browser_version", "89"); caps.setCapability("name",
+	 * "Create Assessments"); caps.setCapability("browserstack.networkLogs",
+	 * "true"); WebDriver driver = new RemoteWebDriver(new URL(URL), caps); return
+	 * driver; }
+	 */
 	  
 	/*public static WebDriver initialization(String browserName){
 		

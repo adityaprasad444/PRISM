@@ -27,13 +27,12 @@ public class HomepageHelp extends TestBase {
 
 	public void browser() {
 
-		try {
-			driver=initializtion();
-		} catch (MalformedURLException e) {
-			
-			e.printStackTrace();
-		}
-		//driver= initialization(gp.getbrowser());
+		/*
+		 * try { driver=initializtion(); } catch (MalformedURLException e) {
+		 * 
+		 * e.printStackTrace(); }
+		 */
+		driver= initialization(gp.getbrowser());
 		browsersettings();
 	}
 
