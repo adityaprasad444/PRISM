@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Assessment Creation]">
-  <listeners>
-    <listener class-name="com.kh.IRA.utilities.Listnershelp"/>
-    <listener class-name="com.kh.IRA.utilities.AnnotationTransformer"/>
-  </listeners>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Learner]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.IRA.Assessments.TC2_Assessment">
+      <class name="com.kh.IRA.learner.TC2_DashboardLinks">
         <methods>
-          <include name="createRegular"/>
+          <include name="dashboardVerify"/>
         </methods>
-      </class> <!-- com.IRA.Assessments.TC2_Assessment -->
-      <class name="com.IRA.Assessments.TC1_Login_Ops">
-        <methods>
-          <include name="begin"/>
-          <include name="navigateToAssessmentlist"/>
-          <include name="opsLogin"/>
-          <include name="end"/>
-        </methods>
-      </class> <!-- com.IRA.Assessments.TC1_Login_Ops -->
+      </class> <!-- com.kh.IRA.learner.TC2_DashboardLinks -->
     </classes>
   </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Assessment Creation] -->
+</suite> <!-- Failed suite [Learner] -->

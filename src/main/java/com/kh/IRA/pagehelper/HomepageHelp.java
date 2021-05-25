@@ -1,6 +1,5 @@
 package com.kh.IRA.pagehelper;
 
-import java.net.MalformedURLException;
 import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
@@ -59,6 +58,18 @@ public class HomepageHelp extends TestBase {
 		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cdp.cmsCourses())));
 		String s=driver.getCurrentUrl();
 		asrt.assertEquals(s, gp.geturl()+"publish/courses","Ops URL does not match");
+		asrt.assertAll();
+	}
+	public void loginLMS(String sheetName,String testName) {
+		HashMap<String,String> data=ExcelReader.readTestData(sheetName, testName);
+		String username=data.get("UserName");
+		String password=data.get("Password");
+		driver.findElement(By.xpath(hp.getUsername())).sendKeys(username);
+		driver.findElement(By.xpath(hp.getPassword())).sendKeys(password);
+		driver.findElement(By.xpath(hp.getSubmit())).click();
+		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cdp.cmsCourses())));
+		String s=driver.getCurrentUrl();
+		asrt.assertEquals(s, gp.geturl()+"learner/dashboard","Ops URL does not match");
 		asrt.assertAll();
 	}
 }

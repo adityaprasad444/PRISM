@@ -18,13 +18,14 @@ public class TC1_Login extends HomepageHelp{
 	@Test
 	public void Login() {
 		url();
-		loginFromProperty();
+		//loginFromProperty();
+		loginLMS("TestCredentials", "LearnerLogin");
 	}
 	
 	@AfterSuite
 	public void end() {
-		//DashboardHelper.logout();
-		//destroy();
+		DashboardHelper.logout();
+		destroy();
 	}
 }
 

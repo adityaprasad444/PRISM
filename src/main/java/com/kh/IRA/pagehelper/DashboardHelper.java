@@ -25,14 +25,16 @@ public class DashboardHelper extends TestBase {
 			String Text=Dashlinks.get(i).getText();
 			driver.findElement(By.linkText(Text)).click();
 			String urlappend=Dashlinks.get(i).getAttribute("href");
+			if(urlappend.contains("free-courses")) {
+				urlappend=urlappend+"/all";				
+			}
 			asrt.assertEquals(driver.getCurrentUrl(), urlappend);
 			asrt.assertAll();
 		}}
 
 	public static void logout() {
-		driver.findElement(By.xpath(dp.profilecircle())).click();
-		List <WebElement> menu=driver.findElements(By.xpath(dp.profileitems()));
-		waitUntilVisibilityOfElement(menu.get(0));
-		menu.get(1).click();
+		List<WebElement> profileLogo=driver.findElements(By.xpath(dp.profilecircle()));
+		profileLogo.get(0).click();
+		driver.findElement(By.xpath(dp.logout())).click();
 	}
 }

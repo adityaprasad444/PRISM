@@ -20,4 +20,7 @@ public class DashboardPage {
 	public  String profileitems() {
 		return cr.getProperty("profileitems");
 	}
+	public  String logout() {
+		return cr.getProperty("logout");
+	}
 }
