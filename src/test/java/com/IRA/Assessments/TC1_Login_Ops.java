@@ -19,8 +19,8 @@ public class TC1_Login_Ops extends HomepageHelp {
 	@Test(priority=1)
 	public void opsLogin() {
 		url();
-		//loginFromProperty();
-		loginCMS("TestCredentials","ManagerLogin");
+		loginFromProperty();
+		//loginCMS("TestCredentials","ManagerLogin");
 	}
 	
 	@Test(priority=2)

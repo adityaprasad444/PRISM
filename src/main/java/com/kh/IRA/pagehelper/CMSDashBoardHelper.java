@@ -22,14 +22,14 @@ public GeneralPage gp;
 	public void questionBank() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
 		cdash.findElement(By.xpath(cdp.cmsQuestionBank())).click();
-		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/assessments/question-bank", "URL Not Matched");
+		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"assessments/question-bank", "URL Not Matched");
 		asrt.assertAll();
 	}
 	
 	public void course() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
 		cdash.findElement(By.xpath(cdp.cmsCourses())).click();
-		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/publish/courses", "URL Not Matched");
+		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"publish/courses", "URL Not Matched");
 		asrt.assertAll();
 	}
 	
@@ -43,7 +43,7 @@ public GeneralPage gp;
 	public void skillMap() {
 		WebElement cdash=driver.findElement(By.xpath(cdp.CmsDashboard()));
 		cdash.findElement(By.xpath(cdp.skillmap())).click();
-		asrt.assertEquals(driver.getCurrentUrl(), "http://test.kh3ira.com/publish/skill-map", "URL Not Matched");
+		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"publish/skill-map", "URL Not Matched");
 		asrt.assertAll();
 	}
 }

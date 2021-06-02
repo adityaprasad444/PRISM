@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Learner]">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.kh.IRA.utilities.Listnershelp"/>
+    <listener class-name="com.kh.IRA.utilities.AnnotationTransformer"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.kh.IRA.learner.TC2_DashboardLinks">
+      <class name="com.kh.IRA.skillmap.AddandEdit_skill">
         <methods>
-          <include name="dashboardVerify"/>
+          <include name="editSkillSubskillCompetency"/>
         </methods>
-      </class> <!-- com.kh.IRA.learner.TC2_DashboardLinks -->
+      </class> <!-- com.kh.IRA.skillmap.AddandEdit_skill -->
     </classes>
   </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Learner] -->
+</suite> <!-- Failed suite [Suite] -->

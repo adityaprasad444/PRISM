@@ -16,12 +16,13 @@ public class Login extends HomepageHelp {
 	@Test(groups = "skillmap")
 	public void contentOpsLogin() {
 		url();
-		loginCMS("TestCredentials","CALogin");
+		//loginCMS("TestCredentials","CALogin");
+		loginFromProperty();
 	}
 	
 	@AfterSuite
 	public void end() {
-		//destroy();
+		destroy();
 	}
 	
 }

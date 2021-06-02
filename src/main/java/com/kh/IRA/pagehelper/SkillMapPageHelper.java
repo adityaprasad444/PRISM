@@ -69,8 +69,9 @@ public class SkillMapPageHelper extends TestBase {
 		System.out.println("Total edit icons: "+editicon.size());
 		
 		for (int i=0;i<editicon.size();i++) {
+			
 			String s=randomString(8);
-			editicon.get(i).click();
+			editicon.get(i+1).click();
 			String type=driver.findElement(By.xpath(smp.popup())).getText();
 			driver.findElement(By.xpath(smp.textbox())).clear();
 			driver.findElement(By.xpath(smp.textbox())).sendKeys(s);
