@@ -198,7 +198,7 @@ public class CreateAssessmentHelper extends TestBase{
 			e.printStackTrace();
 		}
 		try {
-			s.type(fileInputTextBox, filepath +"Kh_Logo.png");
+			s.type(fileInputTextBox, filepath +"kh_newlogo.jpg");
 		} catch (FindFailed e) {
 
 			e.printStackTrace();
