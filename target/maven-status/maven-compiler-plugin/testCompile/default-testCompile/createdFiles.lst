@@ -1,4 +1,5 @@
 com\kh\IRA\skillmap\AddandEdit_skill.class
+com\qa\testing.class
 com\kh\IRA\learner\TC2_DashboardLinks.class
 com\IRA\Assessments\TC2_Assessment.class
 com\kh\IRA\questionbank\TC1_CMS_Login.class
@@ -6,6 +7,5 @@ com\kh\IRA\questionbank\TC2_CreateMCQ.class
 com\IRA\Assessments\TC1_Login_Ops.class
 com\kh\IRA\skillmap\Navigate.class
 com\kh\IRA\coursecreation\TC2_NavigationtoCreateCourse.class
-com\kh\IRA\learner\TC3_VerifyCources.class
 com\kh\IRA\learner\TC1_Login.class
 com\kh\IRA\skillmap\Login.class

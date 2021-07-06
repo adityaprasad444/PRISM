@@ -12,6 +12,7 @@ com\kh\IRA\pages\DashboardPage.class
 com\kh\IRA\pages\createCoursePage.class
 com\kh\IRA\pages\CreateMCQPage.class
 com\kh\IRA\pagehelper\DashboardHelper.class
+com\kh\IRA\utilities\MailinatorHelper.class
 com\kh\IRA\testbase\TestBase.class
 com\kh\IRA\pages\CreateAssessmentPage.class
 com\kh\IRA\utilities\myScreenRecorder.class

@@ -1,51 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Assessment Creation" duration-ms="203002" started-at="2021-06-07T16:01:43 IST" finished-at="2021-06-07T16:05:06 IST">
+  <suite name="Learner" duration-ms="14179" started-at="2021-07-06T11:26:36 IST" finished-at="2021-07-06T11:26:51 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="203002" started-at="2021-06-07T16:01:43 IST" finished-at="2021-06-07T16:05:06 IST">
-      <class name="com.IRA.Assessments.TC2_Assessment">
-        <test-method status="PASS" signature="createMock()[pri:1, instance:com.IRA.Assessments.TC2_Assessment@276438c9]" name="createMock" duration-ms="38628" started-at="2021-06-07T16:01:49 IST" finished-at="2021-06-07T16:02:28 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createMock -->
-        <test-method status="PASS" signature="createGroup()[pri:2, instance:com.IRA.Assessments.TC2_Assessment@276438c9]" name="createGroup" duration-ms="41371" started-at="2021-06-07T16:02:28 IST" finished-at="2021-06-07T16:03:10 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createGroup -->
-        <test-method status="PASS" signature="createRegular()[pri:3, instance:com.IRA.Assessments.TC2_Assessment@276438c9]" name="createRegular" duration-ms="16410" started-at="2021-06-07T16:03:10 IST" finished-at="2021-06-07T16:03:27 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createRegular -->
-        <test-method status="PASS" signature="createRecall()[pri:4, instance:com.IRA.Assessments.TC2_Assessment@276438c9]" name="createRecall" duration-ms="47261" started-at="2021-06-07T16:03:27 IST" finished-at="2021-06-07T16:04:14 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createRecall -->
-        <test-method status="PASS" signature="createFree()[pri:5, instance:com.IRA.Assessments.TC2_Assessment@276438c9]" name="createFree" duration-ms="50704" started-at="2021-06-07T16:04:15 IST" finished-at="2021-06-07T16:05:05 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createFree -->
-      </class> <!-- com.IRA.Assessments.TC2_Assessment -->
-      <class name="com.IRA.Assessments.TC1_Login_Ops">
-        <test-method status="PASS" signature="begin()[pri:0, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="begin" is-config="true" duration-ms="5595" started-at="2021-06-07T16:01:37 IST" finished-at="2021-06-07T16:01:43 IST">
+    <test name="Test" duration-ms="14179" started-at="2021-07-06T11:26:36 IST" finished-at="2021-07-06T11:26:51 IST">
+      <class name="com.kh.PRISM.learner.TC1_Login">
+        <test-method status="PASS" signature="begin()[pri:0, instance:com.kh.PRISM.learner.TC1_Login@70a9f84e]" name="begin" is-config="true" duration-ms="2138" started-at="2021-07-06T11:26:34 IST" finished-at="2021-07-06T11:26:36 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- begin -->
-        <test-method status="PASS" signature="opsLogin()[pri:1, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="opsLogin" duration-ms="4498" started-at="2021-06-07T16:01:43 IST" finished-at="2021-06-07T16:01:48 IST">
+        <test-method status="PASS" signature="Login()[pri:0, instance:com.kh.PRISM.learner.TC1_Login@70a9f84e]" name="Login" duration-ms="5617" started-at="2021-07-06T11:26:37 IST" finished-at="2021-07-06T11:26:42 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- opsLogin -->
-        <test-method status="PASS" signature="navigateToAssessmentlist()[pri:2, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="navigateToAssessmentlist" duration-ms="1395" started-at="2021-06-07T16:01:48 IST" finished-at="2021-06-07T16:01:49 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateToAssessmentlist -->
-        <test-method status="PASS" signature="end()[pri:0, instance:com.IRA.Assessments.TC1_Login_Ops@74294adb]" name="end" is-config="true" duration-ms="4788" started-at="2021-06-07T16:05:06 IST" finished-at="2021-06-07T16:05:11 IST">
+        </test-method> <!-- Login -->
+        <test-method status="PASS" signature="end()[pri:0, instance:com.kh.PRISM.learner.TC1_Login@70a9f84e]" name="end" is-config="true" duration-ms="1448" started-at="2021-07-06T11:26:51 IST" finished-at="2021-07-06T11:26:52 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- com.IRA.Assessments.TC1_Login_Ops -->
+      </class> <!-- com.kh.PRISM.learner.TC1_Login -->
+      <class name="com.kh.PRISM.learner.TC2_DashboardLinks">
+        <test-method status="PASS" signature="dashboardVerify()[pri:0, instance:com.kh.PRISM.learner.TC2_DashboardLinks@130f889]" name="dashboardVerify" duration-ms="1841" started-at="2021-07-06T11:26:46 IST" finished-at="2021-07-06T11:26:47 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dashboardVerify -->
+      </class> <!-- com.kh.PRISM.learner.TC2_DashboardLinks -->
     </test> <!-- Test -->
-  </suite> <!-- Assessment Creation -->
+  </suite> <!-- Learner -->
 </testng-results>

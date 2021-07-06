@@ -29,5 +29,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/AdityaPrasad/.m2/repository/com/aventstack/extentreports/5.0.8/extentreports-5.0.8.jar" sourcepath="C:/Users/AdityaPrasad/.m2/repository/com/aventstack/extentreports/5.0.8/extentreports-5.0.8-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="com.aventstack"/>
+			<attribute name="maven.artifactId" value="extentreports"/>
+			<attribute name="maven.version" value="5.0.8"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

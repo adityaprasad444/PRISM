@@ -2,14 +2,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 <listeners>
-<listener class-name="com.kh.IRA.utilities.Listnershelp"/>
-<listener class-name="com.kh.IRA.utilities.AnnotationTransformer"/>
+<listener class-name="com.kh.PRISM.utilities.Listnershelp"/>
+<listener class-name="com.kh.PRISM.utilities.AnnotationTransformer"/>
 </listeners> 
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.kh.IRA.skillmap.Login"/>
-      <class name="com.kh.IRA.skillmap.Navigate"/>
-      <class name="com.kh.IRA.skillmap.AddandEdit_skill"/>
+      <class name="com.kh.PRISM.skillmap.Login"/>
+      <class name="com.kh.PRISM.skillmap.Navigate"/>
+      <class name="com.kh.PRISM.skillmap.AddandEdit_skill"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
