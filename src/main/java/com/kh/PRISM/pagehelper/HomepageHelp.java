@@ -1,5 +1,6 @@
 package com.kh.PRISM.pagehelper;
 
+import java.net.MalformedURLException;
 import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
@@ -24,14 +25,9 @@ public class HomepageHelp extends TestBase {
 		asrt= new SoftAssert();
 	}
 
-	public void browser() {
-
-		/*
-		 * try { driver=initializtion(); } catch (MalformedURLException e) {
-		 * 
-		 * e.printStackTrace(); }
-		 */
-		driver= initialization(gp.getbrowser());
+	public void browser() throws MalformedURLException {
+		//driver=browserLaunch(gp.getbrowser());
+		driver= initializtion(gp.getOs(),gp.getOsVersion(), gp.getbrowser(), gp.getbrowserVersion());
 		browsersettings();
 	}
 

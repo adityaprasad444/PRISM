@@ -27,4 +27,10 @@ public class CMSdashboardPage {
 	public  String skillmap() {
 		return cr.getProperty("skillmap");
 	}
+	public  String Logout() {
+		return cr.getProperty("Logout");
+	}
+	public  String profileicon() {
+		return cr.getProperty("profileicon");
+	}
 }

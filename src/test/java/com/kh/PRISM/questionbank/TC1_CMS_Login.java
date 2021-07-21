@@ -1,5 +1,7 @@
 package com.kh.PRISM.questionbank;
 
+import java.net.MalformedURLException;
+
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -12,7 +14,7 @@ public class TC1_CMS_Login extends HomepageHelp {
 	CMSDashBoardHelper cdp=new CMSDashBoardHelper(); 
 	 
 	@BeforeSuite
-	public void begin() {
+	public void begin() throws MalformedURLException {
 		browser();
 	}
 	

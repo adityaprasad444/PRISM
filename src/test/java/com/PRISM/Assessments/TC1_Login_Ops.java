@@ -1,7 +1,11 @@
 package com.PRISM.Assessments;
 
+import java.net.MalformedURLException;
+
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.kh.PRISM.pagehelper.CMSDashBoardHelper;
@@ -10,22 +14,22 @@ import com.kh.PRISM.pagehelper.HomepageHelp;
 public class TC1_Login_Ops extends HomepageHelp {
 
 	CMSDashBoardHelper cdp=new CMSDashBoardHelper(); 
-	
+
 	@BeforeSuite(alwaysRun = true)
-	public void begin() {
+	public void begin() throws MalformedURLException {
 		browser();
 	}
-	
-	@Test(priority=1)
-	public void opsLogin() {
+
+	@BeforeTest
+	public void loginAndNavigate() {
 		url();
 		loginFromProperty();
-		//loginCMS("TestCredentials","ManagerLogin");
-	}
-	
-	@Test(priority=2)
-	public void navigateToAssessmentlist() {
 		cdp.assessment();
+	}
+
+	@AfterTest
+	public void logout() {
+		cdp.Logout();
 	}
 	
 	@AfterSuite(alwaysRun = true)

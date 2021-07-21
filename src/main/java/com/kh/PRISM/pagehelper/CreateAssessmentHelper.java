@@ -1,11 +1,15 @@
 package com.kh.PRISM.pagehelper;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -21,7 +25,7 @@ public class CreateAssessmentHelper extends TestBase{
 	public CreateAssessmentPage cap;
 	public GeneralPage gp;
 	public Random rand = new Random();
-	
+
 	public CreateAssessmentHelper() {
 		cap=new CreateAssessmentPage();
 		gp=new GeneralPage();
@@ -69,6 +73,7 @@ public class CreateAssessmentHelper extends TestBase{
 			selectNoOfAttempts();
 			selectPassPercentage(mock);
 			selectTimerAndSetTime(mock, 1);
+			moveToElement(driver.findElement(By.xpath(cap.saveAndNext())));
 			driver.findElement(By.xpath(cap.saveAndNext())).click();
 			selectQuestions(mock);
 		}else if(type.equalsIgnoreCase("Group")) {
@@ -79,7 +84,7 @@ public class CreateAssessmentHelper extends TestBase{
 			//From Name for email triger
 			driver.findElement(By.xpath(cap.sender())).sendKeys("Automation Group Email");
 			selectNoOfAttempts();
-			selectPassPercentage(group);
+			//selectPassPercentage(group);
 			selectTimerAndSetTime(group, 1);
 			selectTimeZone(group);
 			selectTime(group);
@@ -150,9 +155,9 @@ public class CreateAssessmentHelper extends TestBase{
 		}
 		driver.findElement(By.xpath(cap.ddl1()+i+cap.c2())).click();
 		if (i==1) {
-		driver.findElement(By.xpath(cap.assessmentTime())).sendKeys(data.get("Time"));
+			driver.findElement(By.xpath(cap.assessmentTime())).sendKeys(data.get("Time"));
 		}
-		}
+	}
 
 	//selecting timezone using Attempt list locator for ddl list
 	public void selectTimeZone(String testName) {
@@ -171,7 +176,7 @@ public class CreateAssessmentHelper extends TestBase{
 
 	//Adding Start & End Time for the assessment
 	public void selectTime(String testName) {
-		
+
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
 		String start=dateTimeWithAddedMinutes(data.get("TimeZone"), 30);
 		String end=dateTimeWithAddedMinutes(data.get("TimeZone"), 30+Integer.parseInt(data.get("Time")));
@@ -184,56 +189,74 @@ public class CreateAssessmentHelper extends TestBase{
 
 	//selecting logo
 	public void selectlogo() {
-		String filepath = "C:\\Users\\AdityaPrasad\\Desktop\\SeleniumScript\\PRISM\\src\\main\\resources\\com\\kh\\PRISM\\TestData\\";
+		String path=System.getProperty("user.dir")+File.separator+"src"+File.separator+"main"+File.separator+"resources"+
+				File.separator+"com"+File.separator+"kh"+File.separator+"PRISM"+File.separator+"TestData"+File.separator;
+
 		Screen s = new Screen();
-		Pattern fileInputTextBox = new Pattern(filepath + "FileTextBox.PNG");
-		Pattern openButton = new Pattern(filepath + "OpenButton.PNG");
+		Pattern fileInputTextBox = new Pattern(path + "FileTextBox.PNG");
+		Pattern openButton = new Pattern(path + "OpenButton.PNG");
+		String logo=path+"kh_newlogo.jpg";
+		System.out.println(logo);
 
 		driver.findElement(By.xpath(cap.selectlogo())).click();
 
 		try {
+
 			s.wait(fileInputTextBox, 20);
-		} catch (FindFailed e) {
-
-			e.printStackTrace();
-		}
-		try {
-			s.type(fileInputTextBox, filepath +"kh_newlogo.jpg");
-		} catch (FindFailed e) {
-
-			e.printStackTrace();
-		}
-		try {
+			s.type(fileInputTextBox, logo);
 			s.click(openButton);
+
 		} catch (FindFailed e) {
 
 			e.printStackTrace();
 		}
-
 
 		driver.findElement(By.xpath(cap.logoUpload())).click();
 	}
 
+	public void uploadLogo() {
+		String logopath=System.getProperty("user.dir")+File.separator+"src"+File.separator+"main"+File.separator+"resources"+
+				File.separator+"com"+File.separator+"kh"+File.separator+"PRISM"+File.separator+"TestData"+File.separator+"kh_newlogo.jpg";
+		String open=System.getProperty("user.dir")+File.separator+"src"+File.separator+"main"+File.separator+"resources"+
+				File.separator+"com"+File.separator+"kh"+File.separator+"PRISM"+File.separator+"TestData"+File.separator+"OpenButton.PNG";
+		String text=System.getProperty("user.dir")+File.separator+"src"+File.separator+"main"+File.separator+"resources"+
+				File.separator+"com"+File.separator+"kh"+File.separator+"PRISM"+File.separator+"TestData"+File.separator+"FileTextBox.PNG";
+		
+	
+		((RemoteWebDriver)driver).setFileDetector(new LocalFileDetector());
+		WebElement addFile = driver.findElement(By.xpath(cap.selectlogo()));
+		addFile.click();
+		addFile.sendKeys(logopath);
+		driver.findElement(By.xpath(cap.logoUpload())).click();
+
+	}
+
+
+
+
+
+
 	public void selectQuestions(String testName) {
 
 		HashMap<String, String> data=ExcelReader.readTestData("CreateAssessment", testName);
-
+		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cap.selectQuestion())));
 		driver.findElement(By.xpath(cap.selectQuestion())).click();
 		//Selecting page size to 50 records
-		WebElement ddl=driver.findElement(By.xpath(cap.ddlPagination()));
+		/*	WebElement ddl=driver.findElement(By.xpath(cap.ddlPagination()));
 		waitUntilVisibilityOfElement(ddl);
 		ddl.click();
 		driver.findElement(By.xpath(cap.pagesize50())).click();
+		 */
 
 		//while loop start
-			while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
+		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
 			List <WebElement> cb =driver.findElements(By.xpath(cap.selectCheckbox()));
 
 
 			for (int i=1;i<cb.size();i++) { //This will click on the checkbox of given size in if loop.
 
 				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();	
-				if (i==3){
+				if (i==2){
 					break; 
 				}
 			}
@@ -243,7 +266,7 @@ public class CreateAssessmentHelper extends TestBase{
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			int selectedquestions=Integer.parseInt(questions);
 
-			if(selectedquestions==Integer.parseInt(data.get("Number of Questions"))) {
+			if(selectedquestions>=Integer.parseInt(data.get("Number of Questions"))) {
 				break;
 			}else { 
 				try { 

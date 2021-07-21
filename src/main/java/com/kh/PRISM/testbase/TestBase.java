@@ -1,5 +1,7 @@
 package com.kh.PRISM.testbase;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -7,16 +9,18 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
@@ -28,39 +32,46 @@ public class TestBase {
 	public static WebDriver driver = null;
 	public SoftAssert asrt;
 
-	
-	  public static WebDriver initialization(String browserName){
-	  
-	  if(browserName.equalsIgnoreCase("chrome")){
-	  WebDriverManager.chromedriver().setup();
-	  driver = new ChromeDriver(); } 
-	  else if(browserName.equalsIgnoreCase("ff")){
-	  WebDriverManager.firefoxdriver().setup();
-	  driver = new FirefoxDriver(); }
-	  else if(browserName.equalsIgnoreCase("edge")){
-	  WebDriverManager.edgedriver().setup();
-	  driver = new EdgeDriver(); } 
-	  return driver;
-	  
-	  }
-	 
-	/*
-	 * public static WebDriver initializtion() throws MalformedURLException { final
-	 * String USERNAME = "knowledgehutsolu1"; final String AUTOMATE_KEY =
-	 * "GFoqqorpsQExyyUYs2HX"; final String URL = "https://" + USERNAME + ":" +
-	 * AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub"; DesiredCapabilities caps
-	 * = new DesiredCapabilities();
-	 * 
-	 * caps.setCapability("os", "Windows"); caps.setCapability("os_version", "10");
-	 * caps.setCapability("browser", "Chrome");
-	 * caps.setCapability("browser_version", "89"); caps.setCapability("name",
-	 * "Create Assessments"); caps.setCapability("browserstack.networkLogs",
-	 * "true"); WebDriver driver = new RemoteWebDriver(new URL(URL), caps); return
-	 * driver; }
-	 */
-	  
+
+	public static WebDriver browserLaunch(String browserName){
+
+		if(browserName.equalsIgnoreCase("chrome"))
+		{
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		}
+		else if(browserName.equalsIgnoreCase("ff"))
+		{
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver(); 
+		}
+		else if(browserName.equalsIgnoreCase("edge"))
+		{
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+		}
+		return driver;
+}
+
+	public static WebDriver initializtion(String os, String osVersion, String browsername, String browserVersion) throws MalformedURLException { 
+		final String USERNAME = "knowledgehutsolu1";
+		final String AUTOMATE_KEY = "GFoqqorpsQExyyUYs2HX"; 
+		final String URL = "https://" + USERNAME + ":" +AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+		DesiredCapabilities caps= new DesiredCapabilities();
+		caps.setCapability("os", os); 
+		caps.setCapability("os_version", osVersion);
+		caps.setCapability("browser", browsername);
+		caps.setCapability("browser_version", browserVersion);
+		caps.setCapability("resolution", "1366x768");
+		caps.setCapability("browserstack.networkLogs","true");
+		caps.setCapability("name", "PRISM UI Testing");
+		driver = new RemoteWebDriver(new URL(URL), caps);
+		driver.manage().window().maximize();
+		return driver;
+	}
+
 	/*public static WebDriver initialization(String browserName){
-		
+
 		if(browserName.equalsIgnoreCase("chrome")){
 			System.setProperty("webdriver.chrome.driver","./src/main/resources/com/kh/IRA/Drivers/chromedriver.exe");
 			driver=new ChromeDriver();
@@ -75,11 +86,12 @@ public class TestBase {
 		}
 		return driver;
 	}
-	*/
+	 */
+
 	public static void browsersettings() {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(45, TimeUnit.SECONDS);
 	}
 
@@ -137,20 +149,7 @@ public class TestBase {
 		return df.format(tmfn);
 	}
 
-
-	public static void mailinatorHelp(String email,String subject) {
-
-		driver.findElement(By.xpath("//input[@id='addOverlay']")).sendKeys(email);
-		driver.findElement(By.xpath("//button[@id='go-to-public']")).click();
-		List<WebElement> mails=driver.findElements(By.xpath("//tr[@class='even pointer ng-scope']"));
-		driver.findElement(By.xpath("//a[@class='cc-btn cc-dismiss']")).click();
-		for (int i=1;i<=mails.size();i++) {
-			WebElement emailsubject=driver.findElement(By.xpath("//tr[@class='even pointer ng-scope']["+i+"]/td[4]/a"));
-			if (emailsubject.getText().equalsIgnoreCase(subject)){
-				emailsubject.click();
-			}		
-		}
-
-		
+	public static void moveToElement(WebElement element) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 }

@@ -23,4 +23,13 @@ public class GeneralPage {
     public String getpassword() {
     	return cr.getProperty("password");
     }
+    public String getOs() {
+    	return cr.getProperty("os");
+    }
+    public String getOsVersion() {
+    	return cr.getProperty("osVersion");
+    }
+    public String getbrowserVersion() {
+    	return cr.getProperty("browserVersion");
+    }
 }

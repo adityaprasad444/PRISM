@@ -46,4 +46,9 @@ public GeneralPage gp;
 		asrt.assertEquals(driver.getCurrentUrl(), gp.geturl()+"publish/skill-map", "URL Not Matched");
 		asrt.assertAll();
 	}
+	
+	public void Logout() {
+		driver.findElement(By.xpath(cdp.profileicon())).click();
+		driver.findElement(By.xpath(cdp.Logout())).click();
+	}
 }

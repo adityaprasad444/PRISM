@@ -1,9 +1,11 @@
 package com.kh.PRISM.learner;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import java.net.MalformedURLException;
 
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import com.kh.PRISM.pagehelper.DashboardHelper;
 import com.kh.PRISM.pagehelper.HomepageHelp;
 
@@ -11,20 +13,23 @@ import com.kh.PRISM.pagehelper.HomepageHelp;
 public class TC1_Login extends HomepageHelp{
 
 	@BeforeSuite
-	public void begin() {
+	public void begin() throws MalformedURLException {
 		browser();
 	}
 	
-	@Test
+	@BeforeTest
 	public void Login() {
 		url();
-		//loginFromProperty();
 		loginLMS("TestCredentials", "LearnerLogin");
+	}
+	
+	@AfterTest
+	public void Logout() {
+		DashboardHelper.logout();
 	}
 	
 	@AfterSuite
 	public void end() {
-		DashboardHelper.logout();
 		destroy();
 	}
 }

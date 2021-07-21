@@ -1,7 +1,5 @@
 package com.kh.PRISM.utilities;
 
-import java.awt.Desktop;
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -28,31 +25,27 @@ public class Listnershelp extends TestBase implements ITestListener{
 		test = reports.createTest(result.getMethod().getMethodName());
 		test.log(Status.INFO, result.getMethod().getMethodName() + "Test is started");
 	}
-
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		String dest = null;
 		log.info("Test Success : " +result.getName());
 		try {
-			dest=Screenshothelp.takeScreenshot();
+			dest=Screenshothelp.takeScreenshotBase64();
 		} catch (IOException e) {
 			log.info("context", e);
-
 		}
-		test.log(Status.PASS, result.getMethod().getMethodName() + "Test is passed" +test.addScreenCaptureFromPath(dest));
-		
+		test.log(Status.PASS, result.getMethod().getMethodName() + "Test is Passed" +MediaEntityBuilder.createScreenCaptureFromBase64String(dest).build());
 	}
 	@Override
 	public void onTestFailure(ITestResult result) {
 		String dest = null;
 		log.fatal("Test Failed : " +result.getName());
 		try {
-			dest=Screenshothelp.takeScreenshot();
+			dest=Screenshothelp.takeScreenshotBase64();
 		} catch (IOException e) {
 			log.info("context", e);
 		}
-		test.log(Status.FAIL, result.getMethod().getMethodName() + "Test is failed" +MediaEntityBuilder.createScreenCaptureFromPath(dest).build());
-		//test.log(Status.FAIL, result.getMethod().getMethodName() + "Test is failed" +test.addScreenCaptureFromPath(dest));
+		test.log(Status.FAIL, result.getMethod().getMethodName() + "Test is failed" +MediaEntityBuilder.createScreenCaptureFromBase64String(dest).build());
 	}
 	@Override
 	public void onTestSkipped(ITestResult result) {
@@ -62,7 +55,6 @@ public class Listnershelp extends TestBase implements ITestListener{
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		 // Not required
-
 	}
 	@Override
 	public void onStart(ITestContext context) {
@@ -90,10 +82,5 @@ public class Listnershelp extends TestBase implements ITestListener{
 		}
 		log.info("Test Ended");
 		reports.flush();
-		try {
-			Desktop.getDesktop().browse(new File("*.html").toURI());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 }

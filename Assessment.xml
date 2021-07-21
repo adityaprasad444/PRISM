@@ -6,7 +6,7 @@
 <listener class-name="com.kh.PRISM.utilities.AnnotationTransformer"/>
 </listeners> 
 
-  <test thread-count="5" name="Test">
+  <test thread-count="5" name="Asstessments">
     <classes>
       <class name="com.PRISM.Assessments.TC1_Login_Ops"/>
       <class name="com.PRISM.Assessments.TC2_Assessment"/>
