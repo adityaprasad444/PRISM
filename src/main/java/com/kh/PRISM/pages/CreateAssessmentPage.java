@@ -132,4 +132,7 @@ public class CreateAssessmentPage {
 	public  String ddl1() {
 		return cr.getProperty("ddl1");
 	}
+	public  String Yesonpopup() {
+		return cr.getProperty("Yesonpopup");
+	}
 }

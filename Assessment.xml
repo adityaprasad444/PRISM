@@ -3,7 +3,7 @@
 <suite name="Assessment Creation">
 <listeners>
 <listener class-name="com.kh.PRISM.utilities.Listnershelp"/>
-<listener class-name="com.kh.PRISM.utilities.AnnotationTransformer"/>
+<!--listener class-name="com.kh.PRISM.utilities.AnnotationTransformer"/-->
 </listeners> 
 
   <test thread-count="5" name="Asstessments">
