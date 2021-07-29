@@ -54,8 +54,8 @@ public class TestBase {
 }
 
 	public static WebDriver initializtion(String os, String osVersion, String browsername, String browserVersion) throws MalformedURLException { 
-		final String USERNAME = "knowledgehutsolu1";
-		final String AUTOMATE_KEY = "GFoqqorpsQExyyUYs2HX"; 
+		final String USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+		final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY"); 
 		final String URL = "https://" + USERNAME + ":" +AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 		DesiredCapabilities caps= new DesiredCapabilities();
 		caps.setCapability("os", os); 
@@ -64,13 +64,13 @@ public class TestBase {
 		caps.setCapability("browser_version", browserVersion);
 		caps.setCapability("resolution", "1366x768");
 		caps.setCapability("browserstack.networkLogs","true");
-		caps.setCapability("name", "PRISM UI Testing");
+		caps.setCapability("name", System.getenv("BROWSERSTACK_BUILD_NAME"));
 		driver = new RemoteWebDriver(new URL(URL), caps);
 		driver.manage().window().maximize();
 		return driver;
 	}
 
-	/*public static WebDriver initialization(String browserName){
+	public static WebDriver initializationWithExecutables(String browserName){
 
 		if(browserName.equalsIgnoreCase("chrome")){
 			System.setProperty("webdriver.chrome.driver","./src/main/resources/com/kh/IRA/Drivers/chromedriver.exe");
@@ -86,7 +86,7 @@ public class TestBase {
 		}
 		return driver;
 	}
-	 */
+	
 
 	public static void browsersettings() {
 		driver.manage().window().maximize();
