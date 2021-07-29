@@ -60,7 +60,7 @@ public class Listnershelp extends TestBase implements ITestListener{
 	public void onStart(ITestContext context) {
 		log.info("Test Started");
 		reports = new ExtentReports();
-		ExtentSparkReporter spark = new ExtentSparkReporter(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_PRISM Test Report.html");
+		ExtentSparkReporter spark = new ExtentSparkReporter("Reports/"+new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_PRISM Test Report.html");
 		reports.attachReporter(spark);
 		reports.setSystemInfo("OS", "Windows 10 pro");
 		reports.setSystemInfo("Environment", "Test (QA)");
