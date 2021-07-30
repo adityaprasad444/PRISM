@@ -242,11 +242,11 @@ public class CreateAssessmentHelper extends TestBase{
 		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cap.selectQuestion())));
 		driver.findElement(By.xpath(cap.selectQuestion())).click();
 		//Selecting page size to 50 records
-		/*	WebElement ddl=driver.findElement(By.xpath(cap.ddlPagination()));
+		WebElement ddl=driver.findElement(By.xpath(cap.ddlPagination()));
 		waitUntilVisibilityOfElement(ddl);
 		ddl.click();
 		driver.findElement(By.xpath(cap.pagesize50())).click();
-		 */
+		 
 
 		//while loop start
 		while(driver.findElement(By.xpath(cap.previouspage())).isDisplayed()) {
