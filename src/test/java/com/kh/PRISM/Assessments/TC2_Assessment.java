@@ -1,4 +1,4 @@
-package com.PRISM.Assessments;
+package com.kh.PRISM.Assessments;
 
 import java.io.FileNotFoundException;
 

@@ -1,4 +1,4 @@
-package com.PRISM.Assessments;
+package com.kh.PRISM.Assessments;
 
 import java.net.MalformedURLException;
 
@@ -25,7 +25,7 @@ public class TC1_Login_Ops extends HomepageHelp {
 		
 	}
 
-	@Test(priority=1)
+	@Test(priority=2)
 	public void logout() {
 		cdp.assessment();
 	}
