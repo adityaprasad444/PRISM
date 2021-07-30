@@ -3,13 +3,13 @@
 <suite name="Assessment Creation">
 <listeners>
 <listener class-name="com.kh.PRISM.utilities.Listnershelp"/>
-<!--listener class-name="com.kh.PRISM.utilities.AnnotationTransformer"/-->
+<listener class-name="com.kh.PRISM.utilities.AnnotationTransformer"/>
 </listeners> 
 
   <test thread-count="5" name="Asstessments">
     <classes>
-      <class name="com.PRISM.Assessments.TC1_Login_Ops"/>
-      <class name="com.PRISM.Assessments.TC2_Assessment"/>
+      <class name="com.kh.PRISM.Assessments.TC1_Login_Ops"/>
+      <class name="com.kh.PRISM.Assessments.TC2_Assessment"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
