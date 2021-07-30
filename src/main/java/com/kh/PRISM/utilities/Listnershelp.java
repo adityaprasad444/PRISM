@@ -68,7 +68,7 @@ public class Listnershelp extends TestBase implements ITestListener{
 	public void onStart(ITestContext context) {
 		log.info("Test Started");
 		log.info("------------------");
-		reports = new ExtentReports(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_PRISM Test Report.html");
+		reports = new ExtentReports("./Reports/"+new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_PRISM Test Report.html");
 	}
 	@Override
 	public void onFinish(ITestContext context) {
