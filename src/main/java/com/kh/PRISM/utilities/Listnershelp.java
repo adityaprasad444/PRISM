@@ -68,21 +68,11 @@ public class Listnershelp extends TestBase implements ITestListener{
 	public void onStart(ITestContext context) {
 		log.info("Test Started");
 		log.info("------------------");
-		try {
-			myScreenRecorder.startRecording("IRA");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		reports = new ExtentReports(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_IRA Test Report.html");
+		reports = new ExtentReports(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date()) +"_PRISM Test Report.html");
 	}
 	@Override
 	public void onFinish(ITestContext context) {
 		log.info("------------------");
-		try {
-			myScreenRecorder.stopRecording();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		log.info("Test Ended");
 		reports.endTest(test);
 		reports.flush();
