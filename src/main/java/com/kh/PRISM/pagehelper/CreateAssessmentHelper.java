@@ -290,7 +290,9 @@ public class CreateAssessmentHelper extends TestBase{
 		}// while end
 
 		driver.findElement(By.xpath(cap.confirmSelection())).click();
+		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cap.Yesonpopup())));
 		driver.findElement(By.xpath(cap.Yesonpopup())).click();
+		waitUntilVisibilityOfElement(driver.findElement(By.xpath(cap.createAssessment1())));
 		driver.findElement(By.xpath(cap.createAssessment1())).click();
 
 	}
