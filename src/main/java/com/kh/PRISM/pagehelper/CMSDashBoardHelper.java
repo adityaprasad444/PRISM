@@ -51,7 +51,7 @@ public GeneralPage gp;
 		asrt.assertAll();
 	}
 	
-	public void Logout() {
+	public void logout() {
 		driver.findElement(By.xpath(cdp.profileicon())).click();
 		driver.findElement(By.xpath(cdp.Logout())).click();
 	}

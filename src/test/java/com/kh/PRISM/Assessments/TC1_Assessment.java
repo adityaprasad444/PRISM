@@ -1,13 +1,35 @@
 package com.kh.PRISM.Assessments;
 
 import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.kh.PRISM.pagehelper.CMSDashBoardHelper;
 import com.kh.PRISM.pagehelper.CreateAssessmentHelper;
+import com.kh.PRISM.pagehelper.HomepageHelp;
 
-public class TC2_Assessment extends CreateAssessmentHelper{
+public class TC1_Assessment extends CreateAssessmentHelper{
 
+	CMSDashBoardHelper cdp=new CMSDashBoardHelper();
+	HomepageHelp hp=new HomepageHelp();
+	
+	@BeforeMethod
+	public void navigateToAssessments() throws MalformedURLException {
+		hp.browser();
+		hp.url();
+		hp.loginFromProperty();
+		cdp.assessment();
+	}
+
+	@AfterMethod
+	public void logout() {
+		cdp.logout();
+		destroy();
+	}
+	
 	@Test(priority=1, enabled = false)
 	public void createMock() throws FileNotFoundException {
 		gotoCreatepage();
