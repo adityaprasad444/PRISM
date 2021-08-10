@@ -24,11 +24,8 @@ import com.kh.PRISM.pages.GeneralPage;
 
 public class EmailHelper {
 	
-	public static GeneralPage gp;
-	public EmailHelper() {
-		gp= new GeneralPage();
-	}
-
+	public static GeneralPage gp =new GeneralPage();
+	
 	public static void emailReportSend() {
 
 		// Create object of Property file

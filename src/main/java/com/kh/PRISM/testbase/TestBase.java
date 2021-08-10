@@ -55,13 +55,13 @@ public class TestBase {
 
 	public static WebDriver initializtion(String os, String osVersion, String browsername, String browserVersion) throws MalformedURLException { 
 		final String USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+		final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
 		//final String USERNAME="knowledgehutsolu1";
-		final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY"); 
 		//final String AUTOMATE_KEY ="GFoqqorpsQExyyUYs2HX";
 		final String URL = "https://" + USERNAME + ":" +AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 		DesiredCapabilities caps= new DesiredCapabilities();
 		caps.setCapability("browserstack.debug", "true");
-		caps.setCapability("browserstack.video", "false");
+		caps.setCapability("browserstack.video", "true");
 		caps.setCapability("os", os); 
 		caps.setCapability("os_version", osVersion);
 		caps.setCapability("browser", browsername);
