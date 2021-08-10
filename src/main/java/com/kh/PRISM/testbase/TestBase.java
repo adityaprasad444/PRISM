@@ -35,7 +35,7 @@ public class TestBase {
 
 	public static WebDriver browserLaunch(String browserName){
 
-		if(browserName.equalsIgnoreCase("chrome"))
+		if(browserName.equalsIgnoreCase("Chrome"))
 		{
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();

@@ -18,7 +18,7 @@ public class Listnershelp extends TestBase implements ITestListener{
 	ExtentReports reports;
 	ExtentTest test;
 	Logger log = Logger.getLogger(Listnershelp.class);
-	
+
 	@Override
 	public void onTestStart(ITestResult result) {
 		log.info(result.getMethod().getMethodName());
@@ -28,31 +28,30 @@ public class Listnershelp extends TestBase implements ITestListener{
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		String dest = null;
-		log.info("Test Success : " +result.getName());
-		try {
-			dest=Screenshothelp.takeScreenshot();
-		} catch (IOException e) {
-			log.info("context", e);
 
-		}
-		
+		log.info("Test Success : " +result.getName());
+
 		test.log(LogStatus.PASS, result.getMethod().getMethodName() + "Test is passed");
-		test.log(LogStatus.INFO, "Screenshot below: " + test.addScreenCapture(dest));
-		
+		try {
+			test.log(LogStatus.INFO, "Screenshot below: " + test.addBase64ScreenShot(Screenshothelp.takeScreenshotBase64()));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
 	}
 	@Override
 	public void onTestFailure(ITestResult result) {
-		String dest = null;
-		log.fatal("Test Failed : " +result.getName());
-		try {
-			dest=Screenshothelp.takeScreenshot();
-		} catch (IOException e) {
-			log.info("context", e);
 
-		}
+		log.fatal("Test Failed : " +result.getName());
+
 		test.log(LogStatus.FAIL, result.getMethod().getMethodName() + "Test is failed");
-		test.log(LogStatus.INFO, "Snapshot below: " + test.addScreenCapture(dest));
+		try {
+			test.log(LogStatus.INFO, "Snapshot below: " + test.addBase64ScreenShot(Screenshothelp.takeScreenshotBase64()));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void onTestSkipped(ITestResult result) {
@@ -61,7 +60,7 @@ public class Listnershelp extends TestBase implements ITestListener{
 	}
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		 // Not required
+		// Not required
 
 	}
 	@Override

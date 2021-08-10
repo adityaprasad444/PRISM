@@ -47,7 +47,8 @@ public class Screenshothelp extends TestBase{
 		File finalDestination = new File(destination);
 		FileUtils.copyFile(source, finalDestination);
 		byte[] image=IOUtils.toByteArray(new FileInputStream(destination)); 
-		return Base64.getEncoder().encodeToString(image);
+		String imagecode="data:image/png;base64,"+Base64.getEncoder().encodeToString(image);
+		return imagecode;
 	}
 
 }

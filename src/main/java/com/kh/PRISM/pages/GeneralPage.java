@@ -32,4 +32,13 @@ public class GeneralPage {
     public String getbrowserVersion() {
     	return cr.getProperty("browserVersion");
     }
+    public String gmailusername() {
+    	return cr.getProperty("gmailusername");
+    }
+    public String gmailpassword() {
+    	return cr.getProperty("gmailpassword");
+    }
+    public String Toemail() {
+    	return cr.getProperty("Toemail");
+    }
 }
