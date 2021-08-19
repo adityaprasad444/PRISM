@@ -68,7 +68,7 @@ public class EmailHelper {
 			message.setFrom(new InternetAddress("adityaprasadkh@gmail.com"));
 
 			// Set the recipient address
-			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(gp.Toemail()));
+			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(gp.toEmail()));
             
                         // Add the subject link
 			message.setSubject("PRISM Automation Report");

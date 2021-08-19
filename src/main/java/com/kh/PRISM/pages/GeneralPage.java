@@ -38,7 +38,10 @@ public class GeneralPage {
     public String gmailpassword() {
     	return cr.getProperty("gmailpassword");
     }
-    public String Toemail() {
+    public String toEmail() {
     	return cr.getProperty("Toemail");
+    }
+    public String getEnv() {
+    	return cr.getProperty("getEnv");
     }
 }

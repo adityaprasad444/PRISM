@@ -29,6 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 
+	
 	public static WebDriver driver = null;
 	public SoftAssert asrt;
 
@@ -51,25 +52,44 @@ public class TestBase {
 			driver = new EdgeDriver();
 		}
 		return driver;
-}
+	}
 
-	public static WebDriver initializtion(String os, String osVersion, String browsername, String browserVersion) throws MalformedURLException { 
-		final String USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-		final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
-		//final String USERNAME="knowledgehutsolu1";
-		//final String AUTOMATE_KEY ="GFoqqorpsQExyyUYs2HX";
-		final String URL = "https://" + USERNAME + ":" +AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
-		DesiredCapabilities caps= new DesiredCapabilities();
-		caps.setCapability("browserstack.debug", "true");
-		caps.setCapability("browserstack.video", "true");
-		caps.setCapability("os", os); 
-		caps.setCapability("os_version", osVersion);
-		caps.setCapability("browser", browsername);
-		caps.setCapability("browser_version", browserVersion);
-		caps.setCapability("resolution", "1366x768");
-		caps.setCapability("browserstack.networkLogs","true");
-		caps.setCapability("name", System.getenv("BROWSERSTACK_BUILD_NAME"));
-		driver = new RemoteWebDriver(new URL(URL), caps);
+	public static WebDriver initializtion(String os, String osVersion, String browsername, String browserVersion, String env) throws MalformedURLException { 
+		if(env.equalsIgnoreCase("localbs")) {
+			String USERNAME="yedidaadityapras_opbZLt";
+			String AUTOMATE_KEY ="unqzFDitPKtb8aa8Jy2L";
+			final String URL = "https://" + USERNAME + ":" +AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+			DesiredCapabilities caps= new DesiredCapabilities();
+			caps.setCapability("browserstack.debug", "true");
+			caps.setCapability("browserstack.video", "true");
+			caps.setCapability("os", os); 
+			caps.setCapability("os_version", osVersion);
+			caps.setCapability("browser", browsername);
+			caps.setCapability("browser_version", browserVersion);
+			caps.setCapability("resolution", "1366x768");
+			caps.setCapability("browserstack.networkLogs","true");
+			caps.setCapability("name", System.getenv("BROWSERSTACK_BUILD_NAME"));
+			driver = new RemoteWebDriver(new URL(URL), caps);
+
+		}
+		else if(env.equalsIgnoreCase("cloud")) {
+			String USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+			String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+			final String URL = "https://" + USERNAME + ":" +AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+			DesiredCapabilities caps= new DesiredCapabilities();
+			caps.setCapability("browserstack.debug", "true");
+			caps.setCapability("browserstack.video", "true");
+			caps.setCapability("os", os); 
+			caps.setCapability("os_version", osVersion);
+			caps.setCapability("browser", browsername);
+			caps.setCapability("browser_version", browserVersion);
+			caps.setCapability("resolution", "1366x768");
+			caps.setCapability("browserstack.networkLogs","true");
+			caps.setCapability("name", System.getenv("BROWSERSTACK_BUILD_NAME"));
+			driver = new RemoteWebDriver(new URL(URL), caps);
+		}
+		
+		
 		driver.manage().window().maximize();
 		return driver;
 	}
@@ -90,7 +110,7 @@ public class TestBase {
 		}
 		return driver;
 	}
-	
+
 
 	public static void browsersettings() {
 		driver.manage().window().maximize();

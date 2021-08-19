@@ -26,8 +26,8 @@ public class HomepageHelp extends TestBase {
 	}
 
 	public void browser() throws MalformedURLException {
-		driver=browserLaunch(gp.getbrowser());
-		//driver= initializtion(gp.getOs(),gp.getOsVersion(), gp.getbrowser(), gp.getbrowserVersion());
+		//driver=browserLaunch(gp.getbrowser());
+		driver= initializtion(gp.getOs(),gp.getOsVersion(), gp.getbrowser(), gp.getbrowserVersion(),gp.getEnv());
 		browsersettings();
 	}
 
