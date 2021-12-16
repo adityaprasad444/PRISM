@@ -245,7 +245,7 @@ public class CreateAssessmentHelper extends TestBase{
 		WebElement ddl=driver.findElement(By.xpath(cap.ddlPagination()));
 		waitUntilVisibilityOfElement(ddl);
 		ddl.click();
-		driver.findElement(By.xpath(cap.pagesize50())).click();
+		driver.findElement(By.xpath(cap.pagesize25())).click();
 		 
 
 		//while loop start
@@ -256,7 +256,7 @@ public class CreateAssessmentHelper extends TestBase{
 			for (int i=1;i<cb.size();i++) { //This will click on the checkbox of given size in if loop.
 
 				driver.findElement(By.xpath(cap.c1()+i+cap.c2())).click();	
-				if (i==2){
+				if (i==5){
 					break; 
 				}
 			}

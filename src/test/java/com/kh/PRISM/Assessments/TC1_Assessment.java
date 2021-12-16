@@ -38,8 +38,8 @@ public class TC1_Assessment extends CreateAssessmentHelper{
 	
 	@AfterSuite
 	public void terminate() {
-		EmailHelper.emailReportSend();
 		destroy();
+		EmailHelper.emailReportSend();
 	}
 	
 	@Test(priority=1, enabled = false)
@@ -60,13 +60,13 @@ public class TC1_Assessment extends CreateAssessmentHelper{
 		fillAssessmentDetails("regular");
 	}
 	
-	@Test(priority=4,enabled = true)
+	@Test(priority=4,enabled = false)
 	public void createRecall() throws FileNotFoundException {
 		gotoCreatepage();
 		fillAssessmentDetails("recall");
 	}
 	
-	@Test(priority=5,enabled = true)
+	@Test(priority=5,enabled = false)
 	public void createFree() throws FileNotFoundException {
 		gotoCreatepage();
 		fillAssessmentDetails("free");
