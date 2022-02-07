@@ -9,7 +9,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -230,11 +229,6 @@ public class CreateAssessmentHelper extends TestBase{
 		driver.findElement(By.xpath(cap.logoUpload())).click();
 
 	}
-
-
-
-
-
 
 	public void selectQuestions(String testName) {
 
